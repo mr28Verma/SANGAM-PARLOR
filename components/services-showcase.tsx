@@ -1,44 +1,51 @@
-"use client";
-
 import Image from "next/image";
-import { useState } from "react";
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { ArrowUpRight } from "lucide-react";
+import { contact } from "@/lib/landing-content";
 import type { services } from "@/lib/landing-content";
 
 type Services = typeof services;
 
 export function ServicesShowcase({ items }: { items: Services }) {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const reduceMotion = useReducedMotion();
-  const activeService = items[activeIndex];
-
   return (
     <div className="services-showcase">
-      <div className="service-list" role="list" aria-label="Explore services">
-        {items.map((service, index) => (
-          <a
-            href="#contact"
-            className={`service-row${activeIndex === index ? " is-active" : ""}`}
-            data-reveal
-            key={service.number}
-            onMouseEnter={() => setActiveIndex(index)}
-            onFocus={() => setActiveIndex(index)}
-            onTouchStart={() => setActiveIndex(index)}
-            role="listitem"
-          >
-            <span className="service-row-main"><strong>{service.name}</strong><small>{service.description}</small><em>{service.details}</em></span>
-          </a>
-        ))}
-        <a className="underlined-link service-discover" href="#contact">ASK ABOUT A SERVICE</a>
-      </div>
-      <div className="service-preview" aria-live="polite">
-        <AnimatePresence mode="wait" initial={false}>
-          <motion.figure className="service-preview-frame" key={activeService.number} initial={reduceMotion ? false : { opacity: 0, y: 12, scale: 1.015 }} animate={{ opacity: 1, y: 0, scale: 1 }} exit={reduceMotion ? undefined : { opacity: 0, y: -8 }} transition={{ duration: reduceMotion ? 0 : 0.38, ease: [0.22, 1, 0.36, 1] }}>
-            <Image src={activeService.photo.src} alt={activeService.photo.alt} fill sizes="(max-width: 760px) 88vw, 43vw" />
-            <figcaption><span>0{activeIndex + 1} / 04</span><span>{activeService.name.toUpperCase()} AT SANGAM</span></figcaption>
-          </motion.figure>
-        </AnimatePresence>
-      </div>
+      {items.map((service) => {
+        const enquiry = `Hello Sangam Parlour, I’d like to enquire about ${service.name} services.`;
+        const enquiryHref = contact.whatsapp
+          ? `https://wa.me/${contact.whatsapp}?text=${encodeURIComponent(enquiry)}`
+          : "/booking";
+
+        return (
+          <article className="service-card" key={service.number} data-reveal>
+            <figure className="service-card-photo" data-image-reveal>
+              <Image
+                src={service.photo.src}
+                alt={service.photo.alt}
+                fill
+                sizes="(max-width: 640px) 88vw, (max-width: 980px) 42vw, 28vw"
+              />
+              <figcaption>
+                <span>{service.number}</span>
+                <span>ILLUSTRATIVE PHOTOGRAPHY</span>
+              </figcaption>
+            </figure>
+            <div className="service-card-copy">
+              <span className="service-card-index">{service.number} / {String(items.length).padStart(2, "0")}</span>
+              <h3>{service.name}</h3>
+              <p>{service.description}</p>
+              <a
+                className="service-card-action"
+                href={enquiryHref}
+                target={contact.whatsapp ? "_blank" : undefined}
+                rel={contact.whatsapp ? "noreferrer" : undefined}
+                aria-label={`${contact.whatsapp ? "Enquire about" : "Book"} ${service.name} services${contact.whatsapp ? " on WhatsApp" : ""}`}
+              >
+                <span>{contact.whatsapp ? "Enquire on WhatsApp" : "Book this service"}</span>
+                <ArrowUpRight size={15} strokeWidth={1.6} aria-hidden="true" />
+              </a>
+            </div>
+          </article>
+        );
+      })}
     </div>
   );
 }

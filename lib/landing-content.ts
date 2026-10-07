@@ -12,6 +12,7 @@ export const photographs = {
   galleryStyle: { src: "/images/salon-gallery-style-4x3.jpg", alt: "A woman checking her finished hairstyle in a mirror" },
   galleryMakeup: { src: "/images/salon-gallery-makeup-4x3.jpg", alt: "A stylist consulting with a client during a salon appointment" },
   galleryIndiaMakeup: { src: "/images/salon-gallery-india-makeup-4x3.jpg", alt: "A woman makeup artist applying eye makeup to a client" },
+  galleryBraid: { src: "/images/salon-gallery-braid-4x3.jpg", alt: "A woman stylist braiding a client's long hair in a warm salon" },
 } as const;
 
 export const heroFilm = {
@@ -28,10 +29,14 @@ export const services = [
 
 export const offers: ReadonlyArray<{ label: string; title: string; photo: (typeof photographs)[keyof typeof photographs] }> = [];
 
+export const inspiration = [
+  { label: "MAKEUP · INDIA", photo: photographs.galleryIndiaMakeup },
+  { label: "HAIR · BRAIDING", photo: photographs.galleryBraid },
+] as const;
+
 export const gallery = [
   { label: "HAIR · FINISHING", photo: photographs.galleryStyle },
   { label: "BRIDAL · FINISH", photo: photographs.bridalPortrait },
-  { label: "MAKEUP · INDIA", photo: photographs.galleryIndiaMakeup },
 ] as const;
 
 export const values = ["Professional care", "Quality", "Personal attention", "Thoughtful service"] as const;
@@ -39,10 +44,19 @@ export const values = ["Professional care", "Quality", "Personal attention", "Th
 export const testimonials: ReadonlyArray<{ quote: string; name: string; service: string }> = [];
 
 export const contact = {
-  address: "",
-  hours: "",
-  phone: "",
-  whatsapp: "",
-  directions: "",
+  address: "24, Guru Nanak Colony Rd, Guru Nanak Colony, Dafarpur, Punjab 140201",
+  hours: [
+    { day: "Wednesday", time: "10:00 AM – 7:30 PM" },
+    { day: "Thursday", time: "8:30 AM – 8:00 PM" },
+    { day: "Friday", time: "10:00 AM – 12:00 AM" },
+    { day: "Saturday", time: "12:00 AM – 7:30 AM and 9:00 AM – 8:30 PM" },
+    { day: "Sunday", time: "5:00 AM – 8:00 PM" },
+    { day: "Monday", time: "10:00 AM – 7:30 PM" },
+    { day: "Tuesday", time: "8:30 AM – 8:00 PM" },
+  ],
+  hoursNeedConfirmation: true,
+  phone: "9034849654",
+  whatsapp: "919034849654",
+  directions: "https://maps.app.goo.gl/u1whSSBizmMdXUtn7",
   instagram: "",
 } as const;

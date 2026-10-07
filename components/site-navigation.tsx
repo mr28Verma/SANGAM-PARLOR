@@ -1,7 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { AnimatePresence, motion, MotionConfig } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { ThemeToggle } from "@/components/theme-toggle";
 import gsap from "gsap";
@@ -21,6 +20,8 @@ const links = [
 export function SiteNavigation() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const menuRef = useRef<HTMLDetailsElement>(null);
+  const menuButtonRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 36);
@@ -54,7 +55,13 @@ export function SiteNavigation() {
 
   useEffect(() => {
     if (!menuOpen) return;
-    const onKeyDown = (event: KeyboardEvent) => { if (event.key === "Escape") setMenuOpen(false); };
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        if (menuRef.current) menuRef.current.open = false;
+        setMenuOpen(false);
+        menuButtonRef.current?.focus();
+      }
+    };
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [menuOpen]);
@@ -68,19 +75,21 @@ export function SiteNavigation() {
         </nav>
         <ThemeToggle />
         <a className="nav-booking" href="/booking">Book appointment</a>
-        <button className="menu-button" aria-label={menuOpen ? "Close navigation" : "Open navigation"} aria-expanded={menuOpen} aria-controls="mobile-navigation" onClick={() => setMenuOpen((open) => !open)}>
-          {menuOpen ? <X size={22}/> : <Menu size={22}/>}
-        </button>
+        <details ref={menuRef} className="mobile-menu" onToggle={(event) => {
+          const isOpen = event.currentTarget.open;
+          setMenuOpen(isOpen);
+          event.currentTarget.querySelector("summary")?.setAttribute("aria-expanded", String(isOpen));
+        }}>
+          <summary ref={(node) => { menuButtonRef.current = node; }} className="menu-button" aria-label="Toggle navigation" aria-expanded={menuOpen} aria-controls="mobile-navigation">
+            <Menu className="menu-open-icon" size={22}/><X className="menu-close-icon" size={22}/>
+          </summary>
+          <nav id="mobile-navigation" className="mobile-links" aria-label="Mobile navigation">
+            <ThemeToggle compact />
+            {links.map((link) => <a key={link.label} href={link.href} onClick={() => { setMenuOpen(false); if (menuRef.current) menuRef.current.open = false; }}>{link.label}</a>)}
+            <a className="mobile-book-link" href="/booking" onClick={() => { setMenuOpen(false); if (menuRef.current) menuRef.current.open = false; }}>Book appointment</a>
+          </nav>
+        </details>
       </div>
-      <MotionConfig reducedMotion="user">
-      <AnimatePresence initial={false}>
-        {menuOpen && <motion.nav id="mobile-navigation" className="mobile-links" aria-label="Mobile navigation" initial={{ height: 0, opacity: 0 }} animate={{ height: "auto", opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.32, ease: [0.22, 1, 0.36, 1] }}>
-          <ThemeToggle compact />
-          {links.map((link, index) => <motion.a key={link.label} href={link.href} onClick={() => setMenuOpen(false)} initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: index * 0.035 }}>{link.label}</motion.a>)}
-          <a className="mobile-book-link" href="/booking" onClick={() => setMenuOpen(false)}>Book appointment</a>
-        </motion.nav>}
-      </AnimatePresence>
-      </MotionConfig>
     </header>
   );
 }

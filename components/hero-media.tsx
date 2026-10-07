@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 type HeroMediaProps = {
   src: string;
@@ -10,29 +10,56 @@ type HeroMediaProps = {
 };
 
 export function HeroMedia({ src, poster, posterAlt }: HeroMediaProps) {
-  const [canPlayVideo, setCanPlayVideo] = useState(false);
-  const [videoFailed, setVideoFailed] = useState(false);
+  const [reducedMotion, setReducedMotion] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
     const motionPreference = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const mobilePreference = window.matchMedia("(max-width: 760px)");
-    const shouldPlayVideo = () => {
-      const connection = (navigator as Navigator & { connection?: { saveData?: boolean } }).connection;
-      setCanPlayVideo(!motionPreference.matches && !mobilePreference.matches && !connection?.saveData);
-    };
-    shouldPlayVideo();
-    motionPreference.addEventListener("change", shouldPlayVideo);
-    mobilePreference.addEventListener("change", shouldPlayVideo);
+    const updateMotionPreference = () => setReducedMotion(motionPreference.matches);
+    updateMotionPreference();
+    motionPreference.addEventListener("change", updateMotionPreference);
     return () => {
-      motionPreference.removeEventListener("change", shouldPlayVideo);
-      mobilePreference.removeEventListener("change", shouldPlayVideo);
+      motionPreference.removeEventListener("change", updateMotionPreference);
     };
   }, []);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    let cancelled = false;
+    video.defaultMuted = true;
+    video.muted = true;
+
+    if (reducedMotion) {
+      video.pause();
+      return;
+    }
+
+    let playRequest: Promise<void>;
+    try {
+      playRequest = video.play();
+    } catch {
+      return () => { cancelled = true; };
+    }
+
+    playRequest.catch((error: unknown) => {
+      const errorName = typeof error === "object" && error !== null && "name" in error
+        ? error.name
+        : undefined;
+      if (!cancelled && errorName !== "AbortError") video.pause();
+    });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [reducedMotion]);
 
   return (
     <div className="hero-media" aria-hidden="true">
       <Image className="hero-poster" src={poster} alt={posterAlt} fill priority sizes="100vw" />
-      {canPlayVideo && !videoFailed && <video
+      <video
+        ref={videoRef}
         className="hero-video"
         autoPlay
         muted
@@ -40,10 +67,9 @@ export function HeroMedia({ src, poster, posterAlt }: HeroMediaProps) {
         playsInline
         preload="metadata"
         poster={poster}
-        onError={() => setVideoFailed(true)}
       >
         <source src={src} type="video/mp4" />
-      </video>}
+      </video>
     </div>
   );
 }
