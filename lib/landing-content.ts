@@ -1,19 +1,22 @@
 export const photographs = {
-  salon: { src: "/images/salon-hero.jpg", alt: "Stylist caring for a client in a contemporary salon" },
-  hair: { src: "/images/salon-hair.jpg", alt: "Hair stylist finishing a client’s blowout" },
-  skin: { src: "/images/salon-skin.jpg", alt: "A client receiving a professional facial treatment" },
-  makeup: { src: "/images/salon-makeup.jpg", alt: "Makeup artist working with a client at a vanity" },
-  bridal: { src: "/images/salon-bridal.jpg", alt: "Bride with a finished makeup and hair look" },
-  galleryStyle: { src: "/images/salon-gallery-style.jpg", alt: "A client checking her finished updo in a salon mirror" },
-  galleryMakeup: { src: "/images/salon-gallery-makeup.jpg", alt: "A makeup professional preparing a client in a light-filled studio" },
-  galleryCut: { src: "/images/salon-gallery-cut.jpg", alt: "A client receiving a relaxing hair wash at a salon" },
-  galleryBraid: { src: "/images/salon-gallery-braid.jpg", alt: "Two women working together on a braided hairstyle" },
-  galleryIndiaMakeup: { src: "/images/salon-gallery-india-makeup.jpg", alt: "A makeup artist applying eye makeup to a client in Patna, India" },
+  salon: { src: "/images/salon-location-women.jpg", alt: "Women working at salon styling stations, reflected in the mirrors" },
+  heroPoster: { src: "/images/salon-hair.jpg", alt: "A woman stylist finishing a client's blowout in a bright salon" },
+  hair: { src: "/images/salon-service-hair-4x3.jpg", alt: "A woman stylist blow-drying a client's hair in a warm salon" },
+  skin: { src: "/images/salon-service-skin-4x3.jpg", alt: "A woman receiving a professional facial treatment" },
+  makeup: { src: "/images/salon-service-makeup-4x3.jpg", alt: "A woman makeup artist applying eye makeup to her client" },
+  bridal: { src: "/images/salon-service-bridal-4x3.jpg", alt: "A woman makeup artist finishing an Indian bride's look" },
+  bridalPortrait: { src: "/images/salon-gallery-bridal-4x3.jpg", alt: "A bride wearing a finished hairstyle and makeup look" },
+  introHair: { src: "/images/salon-gallery-cut.jpg", alt: "A woman relaxing during a salon hair wash" },
+  introMakeup: { src: "/images/salon-makeup.jpg", alt: "A woman makeup artist preparing a client" },
+  experience: { src: "/images/salon-experience-hair.png", alt: "A woman stylist caring for a client in a warmly lit salon" },
+  galleryStyle: { src: "/images/salon-gallery-style-4x3.jpg", alt: "A woman checking her finished hairstyle in a mirror" },
+  galleryMakeup: { src: "/images/salon-gallery-makeup-4x3.jpg", alt: "A stylist consulting with a client during a salon appointment" },
+  galleryIndiaMakeup: { src: "/images/salon-gallery-india-makeup-4x3.jpg", alt: "A woman makeup artist applying eye makeup to a client" },
 } as const;
 
 export const heroFilm = {
   src: "/videos/gemini_generated_video_703cd73c.mp4",
-  poster: photographs.salon,
+  poster: photographs.heroPoster,
 } as const;
 
 export const services = [
@@ -27,9 +30,7 @@ export const offers: ReadonlyArray<{ label: string; title: string; photo: (typeo
 
 export const gallery = [
   { label: "HAIR · FINISHING", photo: photographs.galleryStyle },
-  { label: "MAKEUP · PREPARATION", photo: photographs.galleryMakeup },
-  { label: "HAIR · CARE", photo: photographs.galleryCut },
-  { label: "BRAIDING · DETAIL", photo: photographs.galleryBraid },
+  { label: "BRIDAL · FINISH", photo: photographs.bridalPortrait },
   { label: "MAKEUP · INDIA", photo: photographs.galleryIndiaMakeup },
 ] as const;
 

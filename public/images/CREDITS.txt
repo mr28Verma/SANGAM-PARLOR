@@ -33,3 +33,5 @@ salon-gallery-india-makeup.jpg — Raju Kumar, Unsplash photo RCrvEH82Lvk
 https://unsplash.com/photos/a-makeup-artist-applies-eye-makeup-on-a-client-RCrvEH82Lvk
 
 Photos are used under the Unsplash License: https://unsplash.com/license
+
+4:3 service and gallery JPEGs in this folder are resized crops of the corresponding source photographs above. The source files remain unchanged and their credits apply to the cropped versions. "salon-location-women.jpg" is a crop of "salon-hero.jpg" showing the women at the right-hand styling stations; the "salon-hero.jpg" source credit applies.

@@ -28,11 +28,14 @@ export default function Home() {
         </section>
 
         <section className="intro section-wrap" id="about">
-          <div className="section-overline" data-reveal><span>01 / A LITTLE ABOUT US</span><span>THE SANGAM EXPERIENCE</span></div>
+          <div className="section-overline" data-reveal>
+            <span className="section-overline-primary"><span className="section-number" aria-hidden="true">01</span><span>A LITTLE ABOUT US</span></span>
+            <span className="section-overline-secondary">THE SANGAM EXPERIENCE</span>
+          </div>
           <div className="intro-grid">
             <div className="intro-images">
-              <figure className="intro-photo intro-main" data-image-reveal><Image src={photographs.hair.src} alt={photographs.hair.alt} fill sizes="(max-width: 760px) 84vw, 42vw" /></figure>
-              <figure className="intro-photo intro-detail" data-image-reveal><Image src={photographs.makeup.src} alt={photographs.makeup.alt} fill sizes="(max-width: 760px) 43vw, 20vw" /></figure>
+              <figure className="intro-photo intro-main" data-image-reveal><Image src={photographs.introHair.src} alt={photographs.introHair.alt} fill sizes="(max-width: 760px) 84vw, 42vw" /></figure>
+              <figure className="intro-photo intro-detail" data-image-reveal><Image src={photographs.introMakeup.src} alt={photographs.introMakeup.alt} fill sizes="(max-width: 760px) 43vw, 20vw" /></figure>
               <span className="photo-caption">ILLUSTRATIVE STOCK PHOTOS · NOT SANGAM CLIENT WORK</span>
             </div>
             <div className="intro-copy" data-reveal>
@@ -48,7 +51,7 @@ export default function Home() {
 
         <section className="services-section" id="services">
           <div className="section-wrap services-inner">
-            <div className="section-overline" data-reveal><span>02 / FIND YOUR SERVICE</span><span>EXPERT CARE, MADE PERSONAL</span></div>
+            <div className="section-overline" data-reveal><span className="section-overline-primary"><span className="section-number" aria-hidden="true">02</span><span>FIND YOUR SERVICE</span></span><span className="section-overline-secondary">EXPERT CARE, MADE PERSONAL</span></div>
             <div className="section-heading" data-reveal><div><p className="eyebrow">THE SANGAM SERVICE MENU</p><h2>Feel good in<br/><em>your own way.</em></h2></div><p>From the everyday to the once-in-a-lifetime, find the care that feels like you.</p></div>
             <ServicesShowcase items={services}/>
             <p className="photo-disclaimer">Service photographs are illustrative stock images, not Sangam Parlour clients or salon work.</p>
@@ -56,7 +59,7 @@ export default function Home() {
         </section>
 
         <section className="experience-section section-wrap" id="experience">
-          <div className="section-overline" data-reveal><span>03 / THE SALON EXPERIENCE</span><span>CARE, AT YOUR OWN PACE</span></div>
+          <div className="section-overline" data-reveal><span className="section-overline-primary"><span className="section-number" aria-hidden="true">03</span><span>THE SALON EXPERIENCE</span></span><span className="section-overline-secondary">CARE, AT YOUR OWN PACE</span></div>
           <div className="experience-grid">
             <div className="experience-copy" data-reveal>
               <p className="eyebrow">A MOMENT TO YOURSELF</p>
@@ -65,26 +68,26 @@ export default function Home() {
               <a className="underlined-link" href="#contact">TALK WITH SANGAM</a>
             </div>
             <figure className="experience-photo" data-image-reveal>
-              <Image src={photographs.salon.src} alt="Illustrative stock photograph of a stylist caring for a salon guest" fill sizes="(max-width: 760px) 100vw, 48vw" />
+              <Image src={photographs.experience.src} alt={photographs.experience.alt} fill sizes="(max-width: 760px) 100vw, 48vw" />
               <figcaption>ILLUSTRATIVE STOCK PHOTOGRAPHY</figcaption>
             </figure>
           </div>
         </section>
 
-        <OffersSection offers={offers} editorialPhoto={photographs.galleryIndiaMakeup}/>
+        <OffersSection offers={offers} editorialPhoto={photographs.galleryMakeup}/>
 
         <section className="gallery-section section-wrap" id="gallery">
-          <div className="section-overline" data-reveal><span>05 / BEAUTY INSPIRATION</span><span>ILLUSTRATIVE STOCK PHOTOGRAPHY</span></div>
+          <div className="section-overline" data-reveal><span className="section-overline-primary"><span className="section-number" aria-hidden="true">05</span><span>BEAUTY INSPIRATION</span></span><span className="section-overline-secondary">ILLUSTRATIVE STOCK PHOTOGRAPHY</span></div>
           <div className="section-heading gallery-heading" data-reveal><div><p className="eyebrow">A LITTLE INSPIRATION</p><h2>The art of<br/>transformation.</h2></div><p>Explore hair and beauty looks for inspiration. These photographs are illustrative and do not depict Sangam Parlour clients.</p></div>
           <div className="gallery-grid">
-            {gallery.map((item) => <figure className="gallery-item" key={item.label} data-reveal><div className="gallery-photo" data-image-reveal><Image src={item.photo.src} alt={item.photo.alt} fill sizes="(max-width: 600px) 44vw, (max-width: 1000px) 30vw, 27vw" /></div><figcaption>{item.label}</figcaption></figure>)}
+            {gallery.map((item) => <figure className="gallery-item" key={item.label} data-reveal><div className="gallery-photo" data-image-reveal><Image src={item.photo.src} alt={item.photo.alt} fill sizes="(max-width: 360px) 90vw, (max-width: 900px) 46vw, 30vw" /></div><figcaption>{item.label}</figcaption></figure>)}
           </div>
           <div className="gallery-link-row" data-reveal><p>For Sangam’s own salon work and client photos, please check back soon.</p><a className="underlined-link" href="#contact">ASK ABOUT A LOOK</a></div>
         </section>
 
         <section className="values-section">
           <div className="section-wrap values-inner">
-            <div className="values-intro" data-reveal><p className="eyebrow">06 / THE SANGAM PROMISE</p><h2>Care is in<br/><em>the details.</em></h2><p>Every visit is guided by the same simple promise: listen well, work thoughtfully, and help you feel at ease.</p></div>
+            <div className="values-intro" data-reveal><p className="eyebrow numbered-eyebrow"><span className="section-number" aria-hidden="true">06</span><span>THE SANGAM PROMISE</span></p><h2>Care is in<br/><em>the details.</em></h2><p>Every visit is guided by the same simple promise: listen well, work thoughtfully, and help you feel at ease.</p></div>
             <div className="values-list">{values.map((value) => <div className="value-item" key={value} data-reveal><h3>{value}</h3></div>)}</div>
           </div>
         </section>
@@ -92,9 +95,9 @@ export default function Home() {
         <TestimonialsSection items={testimonials}/>
 
         <section className="location-section section-wrap" id="contact">
-          <div className="section-overline" data-reveal><span>08 / COME SAY HELLO</span><span>WE’RE HERE FOR YOU</span></div>
+          <div className="section-overline" data-reveal><span className="section-overline-primary"><span className="section-number" aria-hidden="true">08</span><span>COME SAY HELLO</span></span><span className="section-overline-secondary">WE’RE HERE FOR YOU</span></div>
           <div className="location-grid">
-            <div className="location-photo" data-image-reveal><Image src={photographs.salon.src} alt="Illustrative stock photograph of stylists working with clients at a salon" fill sizes="(max-width: 760px) 100vw, 52vw" /><span className="location-photo-note">ILLUSTRATIVE STOCK PHOTOGRAPHY</span></div>
+            <div className="location-photo" data-image-reveal><Image src={photographs.salon.src} alt={photographs.salon.alt} fill sizes="(max-width: 760px) 100vw, 52vw" /><span className="location-photo-note">ILLUSTRATIVE STOCK PHOTOGRAPHY</span></div>
             <div className="location-copy" data-reveal><p className="eyebrow">YOUR NEIGHBOURHOOD BEAUTY DESTINATION</p><h2>Find your way<br/>to <em>Sangam.</em></h2>
               <div className="contact-list">
                 {contact.address && <div><span><small>ADDRESS</small>{contact.address}</span></div>}
@@ -109,7 +112,7 @@ export default function Home() {
         </section>
 
         <section className="booking-cta">
-          <div className="booking-image" data-image-reveal><Image src={photographs.bridal.src} alt="Illustrative stock photograph of a bride with finished hair and makeup" fill sizes="100vw" /></div>
+          <div className="booking-image" data-image-reveal><Image src={photographs.bridal.src} alt={photographs.bridal.alt} fill sizes="100vw" /></div>
           <div className="booking-overlay"/>
           <div className="booking-content" data-reveal><p className="eyebrow">WE’D LOVE TO WELCOME YOU</p><h2>Ready for your<br/><em>next look?</em></h2><p>Book your appointment and let us take care of the rest.</p><div className="booking-actions"><a className="button button-light" href="/booking">Book appointment <ArrowRight size={16}/></a><a className="booking-contact" href="#contact">Contact us</a></div></div>
           <span className="booking-caption">ILLUSTRATIVE STOCK PHOTOGRAPHY · SANGAM PARLOUR</span>

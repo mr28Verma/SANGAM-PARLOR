@@ -7,7 +7,7 @@ type Photograph = (typeof photographs)[keyof typeof photographs];
 export function OffersSection({ offers, editorialPhoto }: { offers: Offers; editorialPhoto: Photograph }) {
   return (
     <section className="offers-section section-wrap" id="offers">
-      <div className="section-overline" data-reveal><span>04 / SANGAM UPDATES</span><span>OFFERS & SEASONAL SERVICES</span></div>
+      <div className="section-overline" data-reveal><span className="section-overline-primary"><span className="section-number" aria-hidden="true">04</span><span>SANGAM UPDATES</span></span><span className="section-overline-secondary">OFFERS & SEASONAL SERVICES</span></div>
       <div className="section-heading offers-heading" data-reveal><div><p className="eyebrow">A LITTLE SOMETHING EXTRA</p><h2>Current <em>offers.</em></h2></div><span className="offer-status">SHARED WHEN CONFIRMED</span></div>
       {offers.length > 0 ? <div className="offers-grid">
         {offers.map((offer, index) => <article className={`offer-item offer-${index + 1}`} key={offer.label} data-reveal>
