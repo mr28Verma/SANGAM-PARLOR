@@ -15,7 +15,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
     async authorize(credentials, request) {
       const username = typeof credentials.username === "string" ? credentials.username.trim() : "";
       const password = typeof credentials.password === "string" ? credentials.password : "";
-      const configuredUsername = process.env.ADMIN_USERNAME;
+      const configuredUsername = process.env.ADMIN_USERNAME?.trim();
       const passwordHash = process.env.ADMIN_PASSWORD_HASH;
       const secret = process.env.AUTH_SECRET;
       const missingConfiguration = [
