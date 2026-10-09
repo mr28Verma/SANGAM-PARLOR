@@ -6,13 +6,20 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "test": "node --test",
+    "setup-admin": "node scripts/setup-admin.mjs",
+    "reset-admin-password": "node --env-file=.env.local scripts/reset-admin-password.mjs",
+    "migrate-appointment-index": "node --env-file=.env.local scripts/migrate-appointment-index.mjs"
   },
   "dependencies": {
+    "bcryptjs": "^3.0.3",
     "framer-motion": "^14.0.0",
     "gsap": "^3.15.0",
     "lucide-react": "^1.52.0",
+    "mongoose": "^9.11.1",
     "next": "16.3.8",
+    "next-auth": "^5.0.0-beta.32",
     "react": "19.2.8",
     "react-dom": "19.2.8"
   },

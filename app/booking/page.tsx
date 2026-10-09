@@ -1,26 +1,30 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowLeft, ArrowRight } from "lucide-react";
-import { ThemeToggle } from "@/components/theme-toggle";
+import { ArrowLeft } from "lucide-react";
+import { SiteFooter } from "@/components/site-footer";
+import { AppointmentBooking } from "./appointment-booking";
 
 export const metadata: Metadata = {
-  title: "Appointments | Sangam Parlour",
-  description: "Appointment booking for Sangam Parlour.",
+  title: "Book an Appointment | Sangam Parlour",
+  description: "Request an appointment with Sangam Parlour.",
 };
 
 export default function BookingPage() {
   return (
-    <main className="booking-placeholder">
-      <div className="booking-topbar"><Link href="/#home" className="brand-lockup"><span>SANGAM</span><small>PARLOUR</small></Link><ThemeToggle /></div>
-      <div className="booking-placeholder-copy">
-        <p className="eyebrow">APPOINTMENTS AT SANGAM</p>
-        <h1>Let’s plan<br/><em>your visit.</em></h1>
-        <p>Online appointment booking is not available yet. Verified contact options will be published here as soon as they’re confirmed.</p>
-        <div className="booking-placeholder-actions">
-          <Link className="button button-dark" href="/#contact">VIEW CONTACT DETAILS <ArrowRight size={15}/></Link>
-          <Link className="underlined-link" href="/"><ArrowLeft size={15}/> BACK TO SANGAM</Link>
+    <div className="site-page booking-site-page">
+      <header className="booking-header section-wrap">
+        <div className="booking-header-inner">
+          <Link className="brand-lockup booking-header-brand" href="/" aria-label="Sangam Parlour home">
+            <span>SANGAM</span><small>PARLOUR</small>
+          </Link>
+          <p className="booking-header-label">YOUR BEAUTY EXPERIENCE</p>
+          <Link className="booking-header-home" href="/"><ArrowLeft size={15} aria-hidden="true"/><span>Back to Home</span></Link>
         </div>
-      </div>
-    </main>
+      </header>
+      <main className="booking-page section-wrap">
+        <AppointmentBooking />
+      </main>
+      <SiteFooter homeLinks />
+    </div>
   );
 }

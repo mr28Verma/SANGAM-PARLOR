@@ -1,0 +1,294 @@
+﻿:root{--admin-bg:#111;--admin-panel:#1d1d1d;--admin-panel-raised:#242321;--admin-gold:#c5a572;--admin-ivory:#f4efe6;--admin-muted:#969088;--admin-line:rgba(244,239,230,.12);--admin-sans:var(--font-manrope,"Manrope","Segoe UI",sans-serif);--admin-serif:var(--font-dm-sans,"DM Sans",sans-serif)}
+.admin-shell{min-height:100vh;background:var(--admin-bg);color:var(--admin-ivory);font-family:var(--admin-sans)}.admin-sidebar{position:fixed;inset:0 auto 0 0;z-index:5;display:flex;flex-direction:column;width:248px;padding:31px 21px 21px;background:#151515;border-right:1px solid var(--admin-line)}.admin-wordmark,.admin-mobile-brand,.admin-login-brand{display:flex;align-items:baseline;gap:8px;width:max-content;color:var(--admin-ivory);font-size:13px;font-weight:700;letter-spacing:.14em}.admin-wordmark span,.admin-mobile-brand span,.admin-login-brand span{font-size:8px;font-weight:400;letter-spacing:.22em}.admin-side-label,.admin-eyebrow{color:var(--admin-gold);font-size:9px;font-weight:600;letter-spacing:.18em;line-height:1.7}.admin-side-label{margin:58px 0 15px 10px;color:#827c72;font-size:8px}.admin-nav{display:grid;gap:6px}.admin-nav a{display:flex;align-items:center;gap:12px;min-height:43px;padding:0 11px;color:#b4ada4;font-size:12px;transition:color .18s,background .18s}.admin-nav a span{width:18px;color:#8c857a;font-size:16px;text-align:center}.admin-nav a:hover,.admin-nav a[aria-current=page]{color:var(--admin-ivory);background:rgba(197,165,114,.1)}.admin-nav a:hover span{color:var(--admin-gold)}.admin-sidebar-bottom{display:grid;gap:13px;margin-top:auto;padding:18px 10px 0;border-top:1px solid var(--admin-line)}.admin-sidebar-bottom>span{color:#706b63;font-size:8px;letter-spacing:.15em}.admin-logout,.admin-mobile-menu button{padding:0;color:#bdb7af;background:none;border:0;font:500 11px var(--admin-sans);cursor:pointer}.admin-logout span{padding-right:8px;color:var(--admin-gold);font-size:15px}.admin-main-column{min-height:100vh;margin-left:248px}.admin-topbar{position:sticky;top:0;z-index:4;display:flex;justify-content:flex-end;align-items:center;height:67px;padding:0 clamp(23px,4vw,55px);background:rgba(17,17,17,.94);border-bottom:1px solid var(--admin-line);backdrop-filter:blur(12px)}.admin-account{display:flex;align-items:center;gap:8px;color:#b6afa5;font-size:10px}.admin-account i{width:7px;height:7px;background:var(--admin-gold);border-radius:50%}.admin-content{max-width:1440px;margin:0 auto;padding:47px clamp(23px,4vw,55px) 70px}.admin-page-heading{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:29px}.admin-page-heading .admin-eyebrow{margin:0 0 12px}.admin-page-heading h1{margin:0;color:var(--admin-ivory);font:400 clamp(32px,3.6vw,48px)/1.12 var(--admin-serif);letter-spacing:-.045em}.admin-page-heading h1 em{color:var(--admin-gold);font-weight:400}.admin-page-heading>div>p:last-child{margin:11px 0 0;color:var(--admin-muted);font-size:12px;line-height:1.6}.admin-primary-link,.admin-refresh-button{display:flex;align-items:center;justify-content:center;gap:11px;min-height:42px;padding:0 15px;color:#181612;background:var(--admin-gold);border:1px solid var(--admin-gold);font:700 9px var(--admin-sans);letter-spacing:.1em;text-transform:uppercase;transition:background .18s}.admin-primary-link:hover,.admin-refresh-button:hover:not(:disabled){background:#d3b783}.admin-refresh-button{color:var(--admin-ivory);background:transparent;border-color:var(--admin-line);cursor:pointer}.admin-refresh-button:disabled{opacity:.6}.admin-metric-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px}.admin-metric-card{position:relative;min-height:137px;padding:18px 19px;background:var(--admin-panel);border:1px solid var(--admin-line)}.admin-metric-icon{display:grid;place-items:center;width:31px;height:31px;margin-bottom:17px;color:var(--admin-gold);background:rgba(197,165,114,.1);border-radius:50%}.admin-metric-icon.green{color:#a9bea5;background:rgba(129,163,122,.12)}.admin-metric-icon.neutral{color:#c4beb4;background:rgba(196,190,180,.1)}.admin-metric-card>p{margin:0 0 7px;color:var(--admin-muted);font-size:8px;font-weight:600;letter-spacing:.12em}.admin-metric-card>strong{font:400 29px/1 var(--admin-serif);letter-spacing:-.04em}.admin-cancelled-card{display:flex;flex-direction:column;justify-content:center;min-height:107px}.admin-cancelled-card>strong{font-size:24px}.admin-cancelled-card>span{margin-top:7px;color:#77716a;font-size:10px}.admin-panel{background:var(--admin-panel);border:1px solid var(--admin-line)}.admin-upcoming-panel{margin-top:22px}.admin-panel-heading{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:22px 23px;border-bottom:1px solid var(--admin-line)}.admin-panel-heading .admin-eyebrow{margin:0 0 6px}.admin-panel-heading h2,.admin-detail-panel h2,.admin-status-actions-panel h2{margin:0;font:400 20px/1.3 var(--admin-serif);letter-spacing:-.02em}.admin-panel-heading>a{color:var(--admin-gold);font-size:10px}.admin-panel-heading>a span{padding-left:7px}.admin-empty-state{display:grid;justify-items:center;gap:8px;padding:38px 18px;text-align:center;color:var(--admin-muted);font-size:11px}.admin-empty-state>span{color:var(--admin-gold);font-size:24px}.admin-empty-state strong{color:var(--admin-ivory);font:400 17px var(--admin-serif)}.admin-empty-state p{margin:0}.admin-upcoming-list{padding:0 22px}.admin-upcoming-row{display:grid;grid-template-columns:125px minmax(120px,1fr) auto 18px;align-items:center;gap:18px;min-height:67px;border-bottom:1px solid var(--admin-line)}.admin-upcoming-row:last-child{border-bottom:0}.admin-upcoming-date,.admin-upcoming-customer{display:grid;gap:5px;font-size:11px}.admin-upcoming-date small,.admin-upcoming-customer small,.admin-cell-subline{color:var(--admin-muted);font-size:9px}.admin-upcoming-customer strong{font-size:11px;font-weight:600}.admin-row-arrow{color:#79736b}.admin-status{display:inline-flex;align-items:center;justify-content:center;width:max-content;min-height:23px;padding:0 9px;border:1px solid transparent;border-radius:20px;font-size:8px;font-weight:700;letter-spacing:.06em;text-transform:uppercase}.admin-status.pending{color:#dbbd82;background:rgba(197,165,114,.11);border-color:rgba(197,165,114,.2)}.admin-status.confirmed{color:#a9c3a2;background:rgba(131,171,122,.1);border-color:rgba(131,171,122,.18)}.admin-status.completed{color:#c0bab0;background:rgba(192,186,176,.08);border-color:rgba(192,186,176,.16)}.admin-status.cancelled{color:#d28e83;background:rgba(199,111,101,.1);border-color:rgba(199,111,101,.19)}.admin-data-note{margin:14px 0;color:#716b63;font-size:9px}.admin-alert,.admin-success{margin:15px 0;padding:12px 14px;border:1px solid rgba(210,142,131,.3);background:rgba(199,111,101,.08);color:#e0a49b;font-size:11px;line-height:1.55}.admin-success{border-color:rgba(131,171,122,.25);background:rgba(131,171,122,.08);color:#b8d0b1}.admin-bookings-panel{overflow:hidden}.admin-booking-toolbar{display:flex;gap:10px;padding:16px 18px;border-bottom:1px solid var(--admin-line)}.admin-search-field,.admin-filter-field{display:flex;align-items:center;gap:9px;min-height:39px;padding:0 11px;color:#928b80;background:#171717;border:1px solid var(--admin-line)}.admin-search-field{flex:1;min-width:160px}.admin-search-field input,.admin-filter-field input,.admin-filter-field select{width:100%;min-width:0;color:var(--admin-ivory);background:transparent;border:0;outline:0;font:11px var(--admin-sans)}.admin-search-field input::placeholder{color:#777169}.admin-filter-field{min-width:145px}.admin-filter-field input[type=date]{color-scheme:dark}.admin-filter-field select{cursor:pointer}.admin-filter-field option{color:var(--admin-ivory);background:#1d1d1d}.admin-table-scroll{width:100%;overflow-x:auto}.admin-bookings-table{width:100%;border-collapse:collapse;text-align:left}.admin-bookings-table th{height:42px;padding:0 13px;color:#827c73;border-bottom:1px solid var(--admin-line);font-size:8px;font-weight:600;letter-spacing:.1em;white-space:nowrap}.admin-bookings-table td{padding:13px;color:#ddd7ce;border-bottom:1px solid rgba(244,239,230,.075);font-size:10px;vertical-align:middle}.admin-bookings-table tbody tr:last-child td{border-bottom:0}.admin-reference,.admin-detail-link{color:var(--admin-gold);font-size:9px;font-weight:600;white-space:nowrap}.admin-customer-name{display:block;max-width:150px;color:var(--admin-ivory);font-size:10px;font-weight:600;overflow-wrap:anywhere}.admin-cell-subline{display:block;margin-top:5px;overflow-wrap:anywhere}.admin-row-actions{display:grid;justify-items:start;gap:6px}.admin-row-actions button{padding:0;color:#b9d0b0;background:none;border:0;font:600 9px var(--admin-sans);cursor:pointer}.admin-row-actions button.cancel{color:#d28e83}.admin-row-actions button:disabled{opacity:.5}.admin-table-message{height:145px!important;color:var(--admin-muted)!important;text-align:center}.admin-table-footer{display:flex;justify-content:space-between;align-items:center;gap:15px;padding:14px 18px;color:var(--admin-muted);border-top:1px solid var(--admin-line);font-size:9px}.admin-table-footer>div{display:flex;align-items:center;gap:10px}.admin-table-footer button{padding:6px 9px;color:var(--admin-ivory);background:transparent;border:1px solid var(--admin-line);font:9px var(--admin-sans);cursor:pointer}.admin-table-footer button:disabled{opacity:.45;cursor:default}.admin-detail-heading{align-items:center}.admin-detail-heading .admin-back-link{display:inline-block;margin-bottom:19px;color:var(--admin-gold);font-size:10px}.admin-detail-heading .admin-eyebrow{margin-bottom:5px}.admin-detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px}.admin-detail-panel{padding:22px}.admin-detail-panel>.admin-eyebrow{margin:0 0 6px}.admin-detail-panel h2{margin-bottom:17px}.admin-detail-list{margin:0}.admin-detail-list>div{display:grid;grid-template-columns:minmax(110px,.72fr) minmax(0,1.3fr);gap:16px;padding:13px 0;border-top:1px solid var(--admin-line)}.admin-detail-list dt{color:var(--admin-muted);font-size:8px;font-weight:600;letter-spacing:.1em}.admin-detail-list dd{margin:0;color:var(--admin-ivory);font-size:11px;line-height:1.6;overflow-wrap:anywhere}.admin-detail-list dd a:hover{color:var(--admin-gold)}.admin-status-actions-panel{display:flex;justify-content:space-between;align-items:center;gap:20px;margin-top:15px;padding:21px 22px;background:var(--admin-panel);border:1px solid var(--admin-line)}.admin-status-actions-panel .admin-eyebrow{margin:0 0 5px}.admin-status-actions-panel h2{font-size:17px}.admin-status-actions-panel>div>p:last-child{margin:6px 0 0;color:var(--admin-muted);font-size:10px}.admin-status-action-buttons{display:flex;flex-wrap:wrap;gap:8px}.admin-status-action-buttons button{min-height:37px;padding:0 12px;color:#171510;background:var(--admin-gold);border:1px solid var(--admin-gold);font:700 9px var(--admin-sans);cursor:pointer}.admin-status-action-buttons button.secondary{color:#dc9a8d;background:transparent;border-color:rgba(210,142,131,.35)}.admin-status-action-buttons button:disabled{opacity:.6}.admin-final-status-note{color:var(--admin-muted);font-size:10px}.admin-status-actions-panel>.admin-alert,.admin-status-actions-panel>.admin-success{flex-basis:100%;margin:0}.admin-login-page{display:grid;place-items:center;position:relative;min-height:100vh;padding:35px 20px;background:radial-gradient(ellipse at 50% 42%,rgba(197,165,114,.09),transparent 48%),#111}.admin-login-brand{position:absolute;top:35px;left:clamp(22px,7vw,100px)}.admin-login-card{width:min(100%,430px);padding:clamp(27px,5vw,46px);background:#1b1b1b;border:1px solid var(--admin-line);box-shadow:0 25px 90px rgba(0,0,0,.25)}.admin-login-card>.admin-eyebrow{margin:0 0 13px}.admin-login-card h1{margin:0;color:var(--admin-ivory);font:400 clamp(34px,7vw,46px)/1.1 var(--admin-serif);letter-spacing:-.04em}.admin-login-intro{margin:12px 0 28px;color:var(--admin-muted);font-size:12px}.admin-login-form{display:grid;gap:9px}.admin-login-form label{margin-top:12px;color:#bbb3a8;font-size:8px;font-weight:600;letter-spacing:.13em}.admin-login-form input{width:100%;height:45px;padding:0 12px;color:var(--admin-ivory);background:#131313;border:1px solid var(--admin-line);border-radius:0;font:13px var(--admin-sans)}.admin-login-form input:focus{border-color:var(--admin-gold);outline:1px solid var(--admin-gold)}.admin-login-submit{display:flex;align-items:center;justify-content:space-between;height:48px;margin-top:14px;padding:0 15px;color:#171510;background:var(--admin-gold);border:1px solid var(--admin-gold);font:700 9px var(--admin-sans);letter-spacing:.13em;cursor:pointer}.admin-login-submit:disabled{opacity:.65;cursor:wait}.admin-login-submit span{font-size:16px}.admin-login-error{margin:4px 0 0;color:#df9b91;font-size:10px}.admin-back-link{display:block;margin-top:22px;color:#a59e94;font-size:10px}.admin-back-link:hover{color:var(--admin-gold)}.admin-login-caption{position:absolute;bottom:20px;color:#716b63;font-size:8px;letter-spacing:.16em}.admin-login-caption span{padding:0 6px;color:var(--admin-gold)}.admin-mobile-brand,.admin-mobile-menu{display:none}.admin-spin{animation:admin-spin .8s linear infinite}@keyframes admin-spin{to{transform:rotate(360deg)}}
+@media(max-width:1100px){.admin-sidebar{width:213px}.admin-main-column{margin-left:213px}.admin-content{padding-right:26px;padding-left:26px}.admin-metric-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.admin-bookings-table th,.admin-bookings-table td{padding-right:9px;padding-left:9px}}
+@media(max-width:760px){.admin-sidebar{display:none}.admin-main-column{margin-left:0}.admin-topbar{justify-content:space-between;height:58px;padding:0 20px}.admin-mobile-brand{display:flex;font-size:11px}.admin-account{font-size:9px}.admin-mobile-menu{position:relative;display:block;margin-left:auto;margin-right:17px}.admin-mobile-menu summary{width:34px;height:34px;display:grid;place-items:center;list-style:none;color:var(--admin-ivory);border:1px solid var(--admin-line);cursor:pointer}.admin-mobile-menu summary::-webkit-details-marker{display:none}.admin-mobile-menu nav{position:absolute;top:42px;right:-10px;z-index:8;display:grid;gap:0;width:190px;padding:7px;background:#20201f;border:1px solid var(--admin-line);box-shadow:0 12px 35px #0008}.admin-mobile-menu nav a,.admin-mobile-menu nav button{display:block;padding:13px 11px;color:var(--admin-ivory);text-align:left;font:11px var(--admin-sans)}.admin-mobile-menu nav a:hover,.admin-mobile-menu nav button:hover{background:#2a2927}.admin-mobile-menu nav form{margin:0}.admin-content{padding:32px 19px 48px}.admin-page-heading{align-items:flex-start;flex-direction:column;margin-bottom:22px}.admin-page-heading h1{font-size:36px}.admin-primary-link,.admin-refresh-button{align-self:flex-start}.admin-metric-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.admin-metric-card{min-height:119px;padding:14px}.admin-metric-icon{width:27px;height:27px;margin-bottom:14px}.admin-metric-card>strong{font-size:25px}.admin-cancelled-card{min-height:95px}.admin-panel-heading{padding:18px 16px}.admin-panel-heading h2{font-size:18px}.admin-upcoming-list{padding:0 14px}.admin-upcoming-row{grid-template-columns:88px minmax(80px,1fr) auto 10px;gap:8px;min-height:64px}.admin-upcoming-date,.admin-upcoming-customer{font-size:10px}.admin-booking-toolbar{display:grid;grid-template-columns:1fr 1fr;padding:12px}.admin-search-field{grid-column:1/-1}.admin-filter-field{min-width:0}.admin-table-footer{align-items:flex-start;flex-direction:column}.admin-detail-grid{grid-template-columns:1fr}.admin-status-actions-panel{align-items:flex-start;flex-direction:column;padding:18px}.admin-status-action-buttons button{min-height:40px}}
+@media(max-width:420px){.admin-account{font-size:0}.admin-account i{width:8px;height:8px}.admin-panel-heading>a{font-size:9px}.admin-upcoming-row{grid-template-columns:76px minmax(75px,1fr) auto 8px}.admin-upcoming-row .admin-status{min-height:20px;padding:0 6px;font-size:7px}.admin-detail-list>div{grid-template-columns:110px minmax(0,1fr);gap:8px}}
+@media(prefers-reduced-motion:reduce){.admin-spin{animation:none}.admin-primary-link,.admin-nav a{transition:none}}
+
+/* Appointment management dashboard refinement */
+.admin-appointments-page{--admin-ivory:#f4efe6;--admin-gold:#c5a572}.admin-breadcrumb{display:flex;align-items:center;gap:9px;margin:-14px 0 19px;color:#8f8980;font-size:10px}.admin-breadcrumb a{color:#c5a572}.admin-breadcrumb a:hover{color:#f4efe6}.admin-appointments-heading{align-items:flex-end}.admin-appointments-heading h1{font-size:clamp(29px,3vw,40px);letter-spacing:-.035em}.admin-heading-tools{display:flex;align-items:center;gap:12px}.admin-today{display:inline-flex;align-items:center;gap:8px;color:#aca59a;font-size:10px;white-space:nowrap}.admin-today svg{color:#c5a572}.admin-appointments-heading .admin-refresh-button{min-width:105px}.admin-appointments-panel-heading{min-height:72px}.admin-appointments-panel-heading h2{font-size:19px}.admin-results-count{color:#a39b90;font-size:10px}.admin-booking-toolbar{align-items:center;flex-wrap:wrap;padding:13px 15px}.admin-booking-toolbar .admin-search-field{flex:1 1 230px;min-height:41px}.admin-booking-toolbar .admin-filter-field{flex:0 1 155px;min-height:41px}.admin-booking-toolbar .admin-filter-field input,.admin-booking-toolbar .admin-filter-field select,.admin-booking-toolbar .admin-search-field input{min-height:38px;font-size:10px}.admin-clear-filters{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:39px;padding:0 9px;color:#c5a572;background:transparent;border:1px solid transparent;font:600 9px var(--admin-sans);cursor:pointer}.admin-clear-filters:hover{border-color:var(--admin-line)}.admin-bookings-table{min-width:1010px}.admin-bookings-table th{height:39px;font-size:7px}.admin-bookings-table td{padding-top:11px;padding-bottom:11px}.admin-bookings-table tbody tr{transition:background .16s}.admin-bookings-table tbody tr:hover{background:rgba(244,239,230,.025)}.admin-reference{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;letter-spacing:.05em}.admin-copy-reference{display:inline-grid;place-items:center;width:26px;height:26px;margin-left:4px;color:#938b80;background:transparent;border:0;vertical-align:middle;cursor:pointer}.admin-copy-reference:hover{color:#c5a572}.admin-customer-cell{display:flex;align-items:center;gap:9px;min-width:155px}.admin-customer-avatar{display:grid;place-items:center;flex:0 0 31px;width:31px;height:31px;color:#d4bc96;background:rgba(197,165,114,.13);border:1px solid rgba(197,165,114,.2);border-radius:50%;font-size:9px;font-weight:700;letter-spacing:.03em}.admin-customer-name{max-width:170px;font-size:10px}.admin-appointment-date{font-size:10px;font-weight:600;white-space:nowrap}.admin-status.confirmed{color:#e2d9ca;background:rgba(244,239,230,.07);border-color:rgba(244,239,230,.16)}.admin-row-actions{display:flex;align-items:center;gap:5px}.admin-row-actions button,.admin-row-actions .admin-detail-link{display:inline-flex;align-items:center;justify-content:center;min-height:29px;padding:0 8px;background:transparent;border:1px solid var(--admin-line);font:600 8px var(--admin-sans);text-decoration:none;cursor:pointer}.admin-row-actions button:hover,.admin-row-actions .admin-detail-link:hover{border-color:rgba(197,165,114,.5);color:#e0c493}.admin-row-actions button.cancel,.admin-dialog-actions button.cancel,.admin-mobile-booking-actions button.cancel{color:#d28e83;border-color:rgba(210,142,131,.24)}.admin-row-actions button:disabled{cursor:wait}.admin-table-message{line-height:1.8}.admin-inline-clear{margin-left:8px;color:#c5a572;background:transparent;border:0;text-decoration:underline;cursor:pointer}.admin-booking-error{display:flex;align-items:center;justify-content:space-between;gap:15px}.admin-booking-error button{min-height:32px;padding:0 12px;color:#f4efe6;background:transparent;border:1px solid rgba(210,142,131,.4);cursor:pointer}.admin-booking-skeleton,.admin-mobile-booking-skeleton{display:block;height:34px;max-width:100%;background:linear-gradient(90deg,#242321 25%,#2b2926 42%,#242321 65%);background-size:300% 100%;animation:admin-skeleton 1.25s ease-in-out infinite}.admin-booking-skeleton{height:22px;border-radius:2px}.admin-mobile-booking-list{display:none}.admin-booking-dialog-backdrop{position:fixed;inset:0;z-index:30;display:grid;place-items:center;padding:20px;background:rgba(0,0,0,.76);backdrop-filter:blur(4px)}.admin-booking-dialog{width:min(100%,600px);max-height:min(88vh,780px);overflow:auto;padding:25px;background:#1d1d1d;border:1px solid rgba(244,239,230,.15);box-shadow:0 24px 90px #0009;outline:none}.admin-booking-dialog-head{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;padding-bottom:18px;border-bottom:1px solid var(--admin-line)}.admin-booking-dialog-head .admin-eyebrow{margin:0 0 7px}.admin-booking-dialog-head h2{margin:0;color:#f4efe6;font:400 24px/1.2 var(--admin-serif)}.admin-booking-dialog-head p:last-child{margin:7px 0 0;color:#969088;font-size:10px}.admin-dialog-close{display:grid;place-items:center;flex:0 0 38px;width:38px;height:38px;color:#ddd7ce;background:transparent;border:1px solid var(--admin-line);cursor:pointer}.admin-dialog-close:hover{color:#c5a572;border-color:#c5a572}.admin-booking-dialog-details{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 20px;margin:0}.admin-booking-dialog-details>div{min-width:0;padding:13px 0;border-bottom:1px solid rgba(244,239,230,.08)}.admin-booking-dialog-details dt{margin-bottom:6px;color:#8e877d;font-size:8px;font-weight:700;letter-spacing:.12em}.admin-booking-dialog-details dd{margin:0;color:#e5dfd5;font-size:11px;line-height:1.6;overflow-wrap:anywhere}.admin-booking-dialog-details dd a{color:inherit}.admin-booking-dialog-details dd a:hover{color:#c5a572}.admin-dialog-actions{display:flex;flex-wrap:wrap;gap:8px;padding-top:17px}.admin-dialog-actions a,.admin-dialog-actions button{display:inline-flex;align-items:center;justify-content:center;min-height:38px;padding:0 12px;color:#1a1814;background:#c5a572;border:1px solid #c5a572;font:700 9px var(--admin-sans);text-decoration:none;cursor:pointer}.admin-dialog-actions a{color:#f4efe6;background:transparent;border-color:var(--admin-line)}.admin-dialog-actions button.cancel{color:#d28e83;background:transparent}.admin-appointments-page :focus-visible,.admin-mobile-menu summary:focus-visible{outline:2px solid #c5a572;outline-offset:3px}
+@keyframes admin-skeleton{to{background-position:-150% 0}}
+@media(max-width:1100px){.admin-bookings-table{min-width:1010px}}
+@media(max-width:760px){.admin-breadcrumb{margin-top:-9px;margin-bottom:14px}.admin-appointments-heading{gap:17px}.admin-heading-tools{width:100%;justify-content:space-between;flex-wrap:wrap}.admin-today{font-size:9px}.admin-appointments-panel-heading{min-height:63px;padding:14px}.admin-booking-toolbar{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;padding:11px}.admin-booking-toolbar .admin-search-field{grid-column:1/-1;min-width:0}.admin-booking-toolbar .admin-filter-field{min-width:0;width:100%}.admin-booking-toolbar .admin-filter-field input,.admin-booking-toolbar .admin-filter-field select{font-size:9px}.admin-booking-toolbar .admin-clear-filters{grid-column:1/-1;justify-self:start}.admin-table-scroll{display:none}.admin-mobile-booking-list{display:grid;gap:9px;padding:10px}.admin-mobile-booking-card{min-width:0;padding:13px;background:#191919;border:1px solid rgba(244,239,230,.09)}.admin-mobile-booking-top{display:grid;grid-template-columns:32px minmax(0,1fr) auto;align-items:center;gap:9px}.admin-mobile-booking-top>div{display:grid;gap:4px;min-width:0}.admin-mobile-booking-top>div strong{color:#f4efe6;font-size:11px}.admin-mobile-booking-top>div>span{overflow:hidden;color:#969088;font-size:8px;text-overflow:ellipsis;white-space:nowrap}.admin-mobile-booking-top .admin-customer-avatar{width:31px;height:31px}.admin-mobile-booking-top .admin-status{min-height:21px;padding:0 7px;font-size:7px}.admin-mobile-booking-info{display:grid;gap:6px;margin:12px 0 0 40px;font-size:10px}.admin-mobile-booking-info>span{color:#c5a572}.admin-mobile-booking-info>strong{color:#e5dfd5;font-size:10px}.admin-mobile-booking-info>small{color:#8e877d;font-size:8px}.admin-mobile-booking-actions{display:flex;flex-wrap:wrap;gap:7px;margin:12px 0 0 40px}.admin-mobile-booking-actions button{min-height:38px;padding:0 13px;color:#e8dfd1;background:transparent;border:1px solid var(--admin-line);font:600 9px var(--admin-sans);cursor:pointer}.admin-mobile-booking-actions button:not(.cancel):nth-child(2){color:#1a1814;background:#c5a572;border-color:#c5a572}.admin-mobile-booking-actions button.cancel{color:#d28e83;border-color:rgba(210,142,131,.24)}.admin-mobile-booking-skeleton{height:120px;border:1px solid var(--admin-line)}.admin-table-footer{gap:10px;padding:12px 13px}.admin-booking-dialog-backdrop{align-items:end;padding:0}.admin-booking-dialog{width:100%;max-height:90vh;padding:21px 18px calc(20px + env(safe-area-inset-bottom));border-bottom:0}.admin-booking-dialog-details{grid-template-columns:minmax(0,1fr);gap:0}.admin-booking-dialog-details>div{display:grid;grid-template-columns:115px minmax(0,1fr);gap:10px;padding:11px 0}.admin-booking-dialog-details dt{margin:0}.admin-dialog-actions>*{flex:1 1 auto}}
+@media(prefers-reduced-motion:reduce){.admin-booking-skeleton,.admin-mobile-booking-skeleton{animation:none}}
+
+
+/* Readable typography for appointment management; public site styles stay untouched. */
+.admin-shell{--admin-sans:var(--font-manrope),Inter,Arial,sans-serif}
+.admin-nav a{font-size:14px;font-weight:500}
+.admin-account{font-size:13px;font-weight:500;color:#c7c0b6}
+.admin-logout,.admin-mobile-menu button{font-size:14px;font-weight:500}
+.admin-sidebar-bottom>span{color:#a29a90;font-size:11px;letter-spacing:.1em}
+.admin-appointments-page{font-family:var(--admin-sans);font-weight:400;color:#f4efe6}
+.admin-appointments-page .admin-breadcrumb{font-size:13px;font-weight:500;color:#bcb4a9}
+.admin-appointments-page .admin-page-heading h1{font-family:var(--admin-sans);font-size:46px;font-weight:600;line-height:1.12;letter-spacing:-.035em}
+.admin-appointments-page .admin-page-heading h1 em{font-style:italic;font-weight:500}
+.admin-appointments-page .admin-page-heading>div>p:last-child{font-size:16px;font-weight:400;color:#c0b9af;line-height:1.55}
+.admin-appointments-page .admin-eyebrow{font-size:12px;font-weight:600;letter-spacing:.12em;color:#d0b582;line-height:1.5}
+.admin-appointments-page .admin-today{font-size:13px;font-weight:500;color:#c7c0b6}
+.admin-appointments-page .admin-refresh-button{min-height:44px;font-size:13px;font-weight:600;letter-spacing:.04em;text-transform:none}
+.admin-appointments-page .admin-panel-heading{padding:20px 22px}
+.admin-appointments-page .admin-panel-heading h2{font-family:var(--admin-sans);font-size:24px;font-weight:600;letter-spacing:-.02em}
+.admin-appointments-page .admin-panel-heading .admin-eyebrow{margin-bottom:5px}
+.admin-appointments-page .admin-results-count{font-size:14px;font-weight:500;color:#c0b9af}
+.admin-appointments-page .admin-booking-toolbar{gap:10px;padding:15px 17px}
+.admin-appointments-page .admin-search-field,.admin-appointments-page .admin-filter-field{min-height:46px}
+.admin-appointments-page .admin-search-field input,.admin-appointments-page .admin-filter-field input,.admin-appointments-page .admin-filter-field select{min-height:44px;font-family:var(--admin-sans);font-size:14px;font-weight:500;color:#f4efe6}
+.admin-appointments-page .admin-search-field input::placeholder{color:#aaa399;opacity:1}
+.admin-appointments-page .admin-search-field,.admin-appointments-page .admin-filter-field{color:#b9b0a4}
+.admin-appointments-page .admin-clear-filters{min-height:42px;font-size:13px;font-weight:600}
+.admin-appointments-page .admin-bookings-table th{height:48px;padding:0 12px;color:#c0b9af;font-size:12px;font-weight:600;letter-spacing:.055em}
+.admin-appointments-page .admin-bookings-table td{padding:15px 12px;color:#e8e2d9;font-size:14px;font-weight:400;line-height:1.45}
+.admin-appointments-page .admin-reference,.admin-appointments-page .admin-detail-link{font-size:13px;font-weight:600}
+.admin-appointments-page .admin-reference{letter-spacing:.035em}
+.admin-appointments-page .admin-copy-reference{width:30px;height:30px;color:#b8b0a5}
+.admin-appointments-page .admin-customer-cell{gap:11px}
+.admin-appointments-page .admin-customer-avatar{flex-basis:36px;width:36px;height:36px;font-size:12px}
+.admin-appointments-page .admin-customer-name{max-width:190px;font-size:15px;font-weight:600;line-height:1.4}
+.admin-appointments-page .admin-cell-subline{margin-top:4px;color:#b9b1a7;font-size:13px;font-weight:400;line-height:1.45}
+.admin-appointments-page .admin-appointment-date{font-size:14px;font-weight:600;white-space:normal}
+.admin-appointments-page .admin-status{min-height:27px;padding:0 10px;font-size:10px;font-weight:600;letter-spacing:.055em}
+.admin-appointments-page .admin-row-actions{gap:6px}
+.admin-appointments-page .admin-row-actions button,.admin-appointments-page .admin-row-actions .admin-detail-link{min-height:36px;padding:0 9px;font-family:var(--admin-sans);font-size:13px;font-weight:600;white-space:nowrap}
+.admin-appointments-page .admin-table-footer{padding:15px 18px;font-size:14px;font-weight:500;color:#c0b9af}
+.admin-appointments-page .admin-table-footer>div{gap:11px}
+.admin-appointments-page .admin-table-footer button{min-height:36px;padding:0 11px;font-family:var(--admin-sans);font-size:13px;font-weight:500}
+.admin-appointments-page .admin-table-message{font-size:14px!important;color:#c0b9af!important}
+.admin-appointments-page .admin-alert,.admin-appointments-page .admin-success{font-size:14px;font-weight:500}
+.admin-appointments-page .admin-booking-error button{font-size:13px;font-weight:600}
+.admin-appointments-page .admin-mobile-booking-top>div strong{font-size:15px;font-weight:600}
+.admin-appointments-page .admin-mobile-booking-top>div>span{overflow:visible;white-space:normal;overflow-wrap:anywhere;font-size:13px;color:#b9b1a7}
+.admin-appointments-page .admin-mobile-booking-top .admin-status{font-size:10px}
+.admin-appointments-page .admin-mobile-booking-info{font-size:14px}
+.admin-appointments-page .admin-mobile-booking-info>strong{font-size:14px;font-weight:600}
+.admin-appointments-page .admin-mobile-booking-info>small{font-size:12px;color:#b9b1a7}
+.admin-appointments-page .admin-mobile-booking-actions button{min-height:42px;padding-inline:14px;font-family:var(--admin-sans);font-size:13px;font-weight:600}
+.admin-appointments-page .admin-booking-dialog-head h2{font-family:var(--admin-sans);font-weight:600}
+.admin-appointments-page .admin-booking-dialog-head p:last-child{font-size:14px;color:#c0b9af}
+.admin-appointments-page .admin-booking-dialog-details dt{font-size:11px;color:#b9b1a7}
+.admin-appointments-page .admin-booking-dialog-details dd{font-size:14px}
+.admin-appointments-page .admin-dialog-actions a,.admin-appointments-page .admin-dialog-actions button{min-height:42px;font-family:var(--admin-sans);font-size:13px;font-weight:600}
+@media(max-width:1100px){.admin-appointments-page .admin-bookings-table{min-width:1080px}}
+@media(max-width:760px){
+  .admin-nav a{font-size:14px}
+  .admin-account{font-size:13px}
+  .admin-logout,.admin-mobile-menu button{font-size:14px}
+  .admin-appointments-page .admin-page-heading h1{font-size:34px;line-height:1.16}
+  .admin-appointments-page .admin-page-heading>div>p:last-child{font-size:15px}
+  .admin-appointments-page .admin-breadcrumb{font-size:13px}
+  .admin-appointments-page .admin-page-heading .admin-eyebrow,.admin-appointments-page .admin-panel-heading .admin-eyebrow{font-size:11px;letter-spacing:.1em}
+  .admin-appointments-page .admin-heading-tools{gap:10px}
+  .admin-appointments-page .admin-today{font-size:12px}
+  .admin-appointments-page .admin-refresh-button{min-height:44px;font-size:13px}
+  .admin-appointments-page .admin-panel-heading{padding:17px 16px}
+  .admin-appointments-page .admin-panel-heading h2{font-size:22px}
+  .admin-appointments-page .admin-results-count{font-size:13px}
+  .admin-appointments-page .admin-booking-toolbar{gap:9px;padding:12px}
+  .admin-appointments-page .admin-search-field,.admin-appointments-page .admin-filter-field{min-height:46px}
+  .admin-appointments-page .admin-search-field input,.admin-appointments-page .admin-filter-field input,.admin-appointments-page .admin-filter-field select{min-height:44px;font-size:14px}
+  .admin-appointments-page .admin-bookings-table{min-width:1080px}
+  .admin-appointments-page .admin-mobile-booking-card{padding:15px}
+  .admin-appointments-page .admin-mobile-booking-info{margin-left:43px}
+  .admin-appointments-page .admin-mobile-booking-actions{margin-left:43px}
+  .admin-appointments-page .admin-table-footer{font-size:13px}
+}
+@media(max-width:420px){
+  .admin-appointments-page .admin-page-heading h1{font-size:32px}
+  .admin-appointments-page .admin-heading-tools{align-items:flex-start;flex-direction:column}
+  .admin-appointments-page .admin-panel-heading h2{font-size:21px}
+}
+
+/* Admin overview and shared shell use the supplied reference's fixed sidebar, topbar, welcome, KPI and split-list composition. */
+.admin-shell{--admin-bg:#111111;--admin-panel:#1d1d1d;--admin-gold:#c5a572;--admin-ivory:#f4efe6;--admin-muted:#a39a8e;--admin-line:#2a2a2a;min-height:100vh;background:var(--admin-bg);font-family:var(--admin-sans);color:var(--admin-ivory)}
+.admin-sidebar{width:256px;background:#1d1d1d;border-right-color:#2a2a2a}
+.admin-main-column{margin-left:256px}
+.admin-sidebar-top{min-width:0}
+.admin-wordmark{width:auto;min-height:80px;gap:12px;padding:0 23px;border-bottom:1px solid #2a2a2a;text-decoration:none}
+.admin-brand-mark{display:grid;place-items:center;flex:0 0 38px;width:38px;height:38px;color:#111;background:#c5a572;border-radius:8px;font:700 21px/1 var(--admin-serif)}
+.admin-brand-copy{display:grid;gap:2px}
+.admin-wordmark .admin-brand-copy strong,.admin-mobile-drawer-brand strong{color:#f4efe6;font-size:17px;font-weight:600;letter-spacing:.09em}
+.admin-wordmark .admin-brand-copy small,.admin-mobile-drawer-brand small{color:#c5a572;font-size:10px;font-weight:600;letter-spacing:.2em}
+.admin-side-label{margin:28px 0 12px 20px;color:#a39a8e;font-size:10px;letter-spacing:.15em}
+.admin-nav{gap:6px;padding:8px 13px}
+.admin-nav a{min-height:46px;gap:12px;padding:0 13px;color:#b9b1a7;border:1px solid transparent;border-radius:7px;font-size:14px;font-weight:500;text-decoration:none}
+.admin-nav a span{width:auto;color:inherit;font-size:inherit;text-align:left}
+.admin-nav a svg{flex:0 0 18px;color:#a39a8e}
+.admin-nav a:hover,.admin-nav a[aria-current="page"]{color:#c5a572;background:rgba(197,165,114,.11);border-color:rgba(197,165,114,.22)}
+.admin-nav a:hover svg,.admin-nav a[aria-current="page"] svg{color:#c5a572}
+.admin-sidebar-bottom{gap:12px;padding:15px 14px 8px;border-top-color:#2a2a2a}
+.admin-owner-card{display:flex;align-items:center;gap:10px;min-width:0;padding:11px;background:#242424;border:1px solid #333;border-radius:7px}
+.admin-owner-mark{display:grid;place-items:center;flex:0 0 34px;width:34px;height:34px;color:#c5a572;background:rgba(197,165,114,.13);border:1px solid rgba(197,165,114,.25);border-radius:50%;font:600 14px var(--admin-sans)}
+.admin-owner-card>span:last-child{display:grid;gap:3px;min-width:0}
+.admin-owner-card strong{overflow:hidden;color:#f4efe6;font-size:12px;font-weight:600;text-overflow:ellipsis;white-space:nowrap}
+.admin-owner-card small{color:#a39a8e;font-size:11px}
+.admin-sidebar-bottom form{margin:0}
+.admin-logout{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;min-height:41px;color:#b9b1a7;border:1px solid #333;border-radius:6px;font:500 13px var(--admin-sans)}
+.admin-logout:hover{color:#f4efe6;background:#252525;border-color:#46413a}
+.admin-logout span{padding:0;color:#c5a572}
+.admin-topbar{height:80px;justify-content:space-between;padding:0 clamp(24px,3vw,42px);background:rgba(29,29,29,.92);border-bottom-color:#2a2a2a}
+.admin-topbar-title h2{margin:0;color:#f4efe6;font:600 19px/1.25 var(--admin-sans);letter-spacing:-.015em}
+.admin-topbar-title p{margin:5px 0 0;color:#a39a8e;font-size:12px;font-weight:400}
+.admin-topbar-tools{display:flex;align-items:center;gap:11px}
+.admin-topbar-refresh{display:grid;place-items:center;width:39px;height:39px;color:#b9b1a7;background:#252525;border:1px solid #383838;border-radius:7px;cursor:pointer}
+.admin-topbar-refresh:hover{color:#c5a572;border-color:rgba(197,165,114,.45)}
+.admin-date-chip{display:inline-flex;align-items:center;gap:8px;min-height:39px;padding:0 11px;color:#c3bbb0;background:#252525;border:1px solid #383838;border-radius:7px;font-size:12px;font-weight:500;white-space:nowrap}
+.admin-date-chip svg{color:#c5a572}
+.admin-account{min-height:39px;padding:0 4px;font-size:12px;font-weight:500}
+.admin-account i{background:#c5a572}
+.admin-content{max-width:1440px;padding:31px clamp(23px,3vw,42px) 54px}
+.admin-mobile-menu{display:none}
+.admin-overview-page{display:grid;gap:22px}
+.admin-welcome-banner{position:relative;display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:176px;padding:27px 30px;background:#1d1d1d;border:1px solid rgba(197,165,114,.25);border-radius:12px;overflow:hidden}
+.admin-welcome-banner::after{position:absolute;top:0;right:0;width:34%;height:100%;content:"";pointer-events:none;background:linear-gradient(90deg,transparent,rgba(197,165,114,.035))}
+.admin-welcome-copy,.admin-welcome-actions{position:relative;z-index:1}
+.admin-welcome-kicker{display:inline-flex;align-items:center;gap:8px;margin-bottom:12px;padding:6px 10px;color:#d0b582;background:rgba(197,165,114,.1);border:1px solid rgba(197,165,114,.24);border-radius:20px;font-size:11px;font-weight:600;letter-spacing:.045em}
+.admin-welcome-kicker svg{color:#c5a572}
+.admin-welcome-copy h1{max-width:720px;margin:0;color:#f4efe6;font:600 clamp(25px,2.6vw,34px)/1.2 var(--admin-sans);letter-spacing:-.03em}
+.admin-welcome-copy h1 em{color:#c5a572;font-style:normal;font-weight:500}
+.admin-welcome-copy>p{max-width:670px;margin:10px 0 0;color:#b3aba0;font-size:14px;line-height:1.65}
+.admin-welcome-copy>p strong{color:#f4efe6;font-weight:600}
+.admin-welcome-actions{display:flex;flex-wrap:wrap;gap:9px;flex:0 0 auto}
+.admin-welcome-primary,.admin-welcome-secondary{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:42px;padding:0 13px;border:1px solid #c5a572;border-radius:6px;font-size:12px;font-weight:600;text-decoration:none;white-space:nowrap}
+.admin-welcome-primary{color:#111;background:#c5a572}
+.admin-welcome-primary:hover{background:#d2b37f}
+.admin-welcome-secondary{color:#eee7dc;background:#252525;border-color:#3b3935}
+.admin-welcome-secondary:hover{color:#c5a572;border-color:rgba(197,165,114,.4)}
+.admin-overview-metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:15px}
+.admin-overview-card{min-width:0;min-height:140px;padding:17px 18px;background:#1d1d1d;border:1px solid #2a2a2a;border-radius:9px}
+.admin-overview-card-top{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:12px}
+.admin-overview-card-top p{margin:0;color:#b8b0a5;font-size:11px;font-weight:600;letter-spacing:.07em;line-height:1.4}
+.admin-overview-card-top>span{display:grid;place-items:center;flex:0 0 34px;width:34px;height:34px;color:#c5a572;background:rgba(197,165,114,.11);border-radius:7px}
+.admin-overview-card>strong{display:block;color:#f4efe6;font:600 29px/1.15 var(--admin-sans);letter-spacing:-.025em}
+.admin-overview-card>small{display:block;margin-top:6px;color:#a39a8e;font-size:12px;line-height:1.45}
+.admin-overview-grid{display:grid;grid-template-columns:minmax(0,2fr) minmax(300px,1fr);align-items:stretch;gap:18px}
+.admin-overview-list-panel,.admin-recent-panel{min-width:0;overflow:hidden;border-radius:10px}
+.admin-overview-panel-heading{display:flex;align-items:center;justify-content:space-between;gap:15px;min-height:82px;padding:17px 19px;border-bottom:1px solid #2a2a2a}
+.admin-overview-panel-heading>div{min-width:0}
+.admin-overview-panel-heading .admin-eyebrow{margin:0 0 4px;color:#c5a572;font-size:10px;letter-spacing:.14em}
+.admin-overview-panel-heading h2{margin:0;color:#f4efe6;font:600 17px/1.35 var(--admin-sans);letter-spacing:-.015em}
+.admin-overview-panel-heading>div>span{display:block;margin-top:3px;color:#a39a8e;font-size:11px}
+.admin-overview-panel-heading>a{display:inline-flex;align-items:center;gap:5px;flex:0 0 auto;color:#c5a572;font-size:12px;font-weight:500;text-decoration:none}
+.admin-overview-panel-heading>a:hover{text-decoration:underline}
+.admin-overview-bookings{padding:8px 17px}
+.admin-overview-booking{display:grid;grid-template-columns:110px minmax(0,1fr) auto 16px;align-items:center;gap:13px;min-height:73px;padding:10px 5px;border-bottom:1px solid rgba(244,239,230,.075);text-decoration:none}
+.admin-overview-booking:last-child{border-bottom:0}
+.admin-overview-booking:hover .admin-overview-booking-client>strong{color:#d2b37f}
+.admin-overview-booking-date,.admin-overview-booking-client{display:grid;gap:5px;min-width:0}
+.admin-overview-booking-date>strong,.admin-overview-booking-client>strong{color:#e9e2d8;font-size:12px;font-weight:600;line-height:1.35}
+.admin-overview-booking-date small,.admin-overview-booking-client small{color:#a39a8e;font-size:11px;line-height:1.4}
+.admin-overview-booking-client small{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.admin-overview-booking .admin-status{min-height:24px;padding:0 8px;font-size:9px}
+.admin-overview-arrow{color:#8c857b}
+.admin-live-indicator{display:inline-flex;align-items:center;gap:6px;color:#c6b99f;font-size:10px}
+.admin-live-indicator i{width:6px;height:6px;background:#c5a572;border-radius:50%}
+.admin-recent-list{padding:3px 17px}
+.admin-recent-item{display:grid;grid-template-columns:30px minmax(0,1fr) auto;align-items:start;gap:10px;padding:13px 1px;border-bottom:1px solid rgba(244,239,230,.075);text-decoration:none}
+.admin-recent-item:last-child{border-bottom:0}
+.admin-recent-mark{display:grid;place-items:center;width:29px;height:29px;color:#c5a572;background:rgba(197,165,114,.11);border-radius:50%}
+.admin-recent-mark.pending{color:#d0b582}.admin-recent-mark.confirmed{color:#ded5c7}.admin-recent-mark.completed{color:#c0bab0}.admin-recent-mark.cancelled{color:#d28e83}
+.admin-recent-copy{display:grid;gap:4px;min-width:0}
+.admin-recent-copy>strong{overflow:hidden;color:#e9e2d8;font-size:12px;font-weight:600;text-overflow:ellipsis;white-space:nowrap}
+.admin-recent-copy>small{color:#aaa297;font-size:10px;line-height:1.45;overflow-wrap:anywhere}
+.admin-recent-item .admin-status{min-height:21px;padding:0 7px;font-size:8px}
+.admin-overview-empty{display:grid;justify-items:center;gap:8px;min-height:150px;padding:27px 20px;color:#a39a8e;text-align:center;font-size:12px;line-height:1.55}
+.admin-overview-empty svg{color:#c5a572}
+.admin-overview-empty strong{color:#e9e2d8;font-size:14px;font-weight:600}
+.admin-overview-empty span{max-width:300px}
+.admin-overview-page .admin-data-note{margin:0;color:#9b9388;font-size:11px}
+.admin-customer-page .admin-customer-heading{align-items:center;margin-bottom:23px}
+.admin-customer-page .admin-customer-heading h1{font-family:var(--admin-sans);font-size:34px;font-weight:600;letter-spacing:-.03em}
+.admin-customer-page .admin-customer-heading h1 em{color:#c5a572;font-style:normal;font-weight:500}
+.admin-customer-page .admin-customer-heading>div>p:last-child{color:#b3aba0;font-size:14px}
+.admin-customer-total{display:inline-flex;align-items:center;gap:8px;color:#ded7cc;font-size:13px;font-weight:500}
+.admin-customer-total svg{color:#c5a572}
+.admin-customer-directory{overflow:hidden;border-radius:9px}
+.admin-customer-toolbar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:15px;border-bottom:1px solid #2a2a2a;color:#b9b1a7;font-size:13px}
+.admin-customer-toolbar .admin-search-field{width:min(100%,480px);min-height:43px}
+.admin-customer-toolbar .admin-search-field input{font-family:var(--admin-sans);font-size:14px}
+.admin-customer-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px;padding:16px}
+.admin-customer-card{min-width:0;padding:16px;background:#191919;border:1px solid #2a2a2a;border-radius:8px}
+.admin-customer-card-heading{display:flex;align-items:center;gap:11px;min-width:0}
+.admin-customer-large-avatar{display:grid;place-items:center;flex:0 0 40px;width:40px;height:40px;color:#d7c29e;background:rgba(197,165,114,.13);border:1px solid rgba(197,165,114,.25);border-radius:50%;font-size:13px;font-weight:600}
+.admin-customer-card-heading>span:last-child{display:grid;gap:4px;min-width:0}
+.admin-customer-card-heading strong{overflow:hidden;color:#f4efe6;font-size:15px;font-weight:600;text-overflow:ellipsis;white-space:nowrap}
+.admin-customer-card-heading small{color:#a39a8e;font-size:12px}
+.admin-customer-contact{display:grid;gap:9px;margin-top:15px;padding-top:13px;border-top:1px solid #2a2a2a}
+.admin-customer-contact a{display:flex;align-items:flex-start;gap:8px;min-width:0;color:#c2baaf;font-size:12px;line-height:1.45;text-decoration:none;overflow-wrap:anywhere}
+.admin-customer-contact a:hover{color:#c5a572}
+.admin-customer-contact svg{flex:0 0 15px;margin-top:1px;color:#c5a572}
+.admin-customer-last-visit{display:flex;justify-content:space-between;gap:10px;margin-top:14px;padding-top:11px;border-top:1px solid #2a2a2a}
+.admin-customer-last-visit span{color:#a39a8e;font-size:9px;font-weight:600;letter-spacing:.08em}
+.admin-customer-last-visit strong{color:#e5ded4;font-size:11px;font-weight:500}
+.admin-customer-empty{padding:28px;color:#b3aba0;font-size:13px}
+.admin-mobile-drawer-brand{display:none}
+@media(max-width:1100px){.admin-sidebar{width:228px}.admin-main-column{margin-left:228px}.admin-overview-grid{grid-template-columns:minmax(0,1.5fr) minmax(285px,1fr);gap:14px}.admin-overview-booking{grid-template-columns:96px minmax(0,1fr) auto 14px;gap:9px}.admin-customer-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:760px){
+  .admin-sidebar{display:none}.admin-main-column{margin-left:0}
+  .admin-topbar{height:72px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:0 12px;padding:0 17px}
+  .admin-topbar-title{grid-column:1;grid-row:1}.admin-topbar-title h2{font-size:16px}.admin-topbar-title p{font-size:11px}
+  .admin-mobile-menu{position:relative;display:block;grid-column:2;grid-row:1;justify-self:end;margin:0}
+  .admin-mobile-menu summary{display:grid;place-items:center;width:40px;height:40px;list-style:none;color:#eee7dc;background:#252525;border:1px solid #3a3834;border-radius:7px;cursor:pointer}
+  .admin-mobile-menu summary::-webkit-details-marker{display:none}
+  .admin-mobile-menu[open]::before{position:fixed;inset:0;z-index:39;content:"";background:rgba(0,0,0,.68)}
+  .admin-mobile-drawer{position:fixed;inset:0 auto 0 0;z-index:40;display:block;width:min(310px,86vw);padding:0 0 18px;background:#1d1d1d;border-right:1px solid #34312d;box-shadow:12px 0 35px #0006}
+  .admin-mobile-drawer-brand{display:flex;align-items:center;gap:11px;height:80px;padding:0 19px;border-bottom:1px solid #2a2a2a}
+  .admin-mobile-drawer-brand>button{display:grid;place-items:center;width:36px;height:36px;margin-left:auto;color:#c5bdae;background:#252525;border:1px solid #383838;border-radius:6px;cursor:pointer}
+  .admin-mobile-drawer-brand>button:hover{color:#c5a572;border-color:rgba(197,165,114,.4)}
+  .admin-mobile-drawer-brand>span:last-child{display:grid;gap:2px}
+  .admin-mobile-menu nav.admin-nav-mobile{display:grid;gap:6px;padding:16px 13px}
+  .admin-mobile-menu nav.admin-nav-mobile{position:static;inset:auto;width:auto;background:transparent;border:0;box-shadow:none}
+  .admin-mobile-menu nav.admin-nav-mobile a{display:flex;align-items:center;gap:12px;min-height:47px;padding:0 13px;color:#b9b1a7;border:1px solid transparent;border-radius:7px;font:500 14px var(--admin-sans);text-align:left}
+  .admin-mobile-menu nav.admin-nav-mobile a[aria-current="page"]{color:#c5a572;background:rgba(197,165,114,.11);border-color:rgba(197,165,114,.22)}
+  .admin-mobile-menu nav.admin-nav-mobile a svg{flex:0 0 18px;color:currentColor}
+  .admin-mobile-drawer form{position:absolute;right:14px;bottom:18px;left:14px;margin:0;padding-top:14px;border-top:1px solid #2a2a2a}
+  .admin-mobile-drawer form button{width:100%;min-height:44px;padding:0 13px;color:#c7c0b6;background:#252525;border:1px solid #383838;border-radius:6px;font:500 14px var(--admin-sans);text-align:left}
+  .admin-topbar-tools{grid-column:1/-1;grid-row:2;justify-content:flex-end;gap:8px;padding:0 0 8px}
+  .admin-topbar{height:auto;min-height:72px;padding-top:8px}
+  .admin-topbar-title{align-self:center;padding-bottom:8px}
+  .admin-topbar-refresh,.admin-date-chip{min-height:33px;height:33px}
+  .admin-account{min-height:33px;font-size:11px}
+  .admin-content{padding:22px 17px 42px}
+  .admin-overview-page{gap:15px}
+  .admin-welcome-banner{align-items:flex-start;flex-direction:column;gap:17px;min-height:0;padding:20px 18px;border-radius:9px}
+  .admin-welcome-copy h1{font-size:26px}
+  .admin-welcome-copy>p{font-size:13px}
+  .admin-welcome-actions{width:100%}
+  .admin-welcome-primary,.admin-welcome-secondary{flex:1 1 auto;min-height:43px;padding:0 9px;font-size:11px}
+  .admin-overview-metrics{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+  .admin-overview-card{min-height:119px;padding:13px}
+  .admin-overview-card-top{align-items:flex-start;margin-bottom:9px}
+  .admin-overview-card-top p{font-size:9px}
+  .admin-overview-card-top>span{flex-basis:29px;width:29px;height:29px}
+  .admin-overview-card>strong{font-size:25px}
+  .admin-overview-card>small{font-size:10px}
+  .admin-overview-grid{grid-template-columns:minmax(0,1fr);gap:14px}
+  .admin-overview-panel-heading{min-height:72px;padding:14px}
+  .admin-overview-panel-heading h2{font-size:15px}
+  .admin-overview-panel-heading>div>span{font-size:10px}
+  .admin-overview-bookings{padding:6px 12px}
+  .admin-overview-booking{grid-template-columns:80px minmax(0,1fr) auto 13px;gap:8px;min-height:70px}
+  .admin-overview-booking-date>strong,.admin-overview-booking-client>strong{font-size:11px}
+  .admin-overview-booking-date small,.admin-overview-booking-client small{font-size:10px}
+  .admin-overview-booking .admin-status{font-size:8px}
+  .admin-recent-list{padding:2px 13px}
+  .admin-recent-item{grid-template-columns:29px minmax(0,1fr) auto;gap:8px;padding:12px 0}
+  .admin-recent-copy>strong{font-size:11px}
+  .admin-recent-copy>small{font-size:9px}
+  .admin-recent-item .admin-status{font-size:7px}
+  .admin-customer-page .admin-customer-heading{align-items:flex-start;gap:12px}
+  .admin-customer-page .admin-customer-heading h1{font-size:29px}
+  .admin-customer-grid{grid-template-columns:minmax(0,1fr);gap:9px;padding:11px}
+  .admin-customer-toolbar{align-items:flex-start;flex-direction:column;padding:12px}
+  .admin-customer-toolbar .admin-search-field{width:100%}
+}
+@media(max-width:420px){
+  .admin-topbar-tools .admin-account{font-size:0;padding:0}.admin-topbar-tools .admin-account i{width:8px;height:8px}
+  .admin-topbar-tools .admin-date-chip{padding:0 8px;font-size:10px}
+  .admin-welcome-copy h1{font-size:24px}
+  .admin-welcome-actions{flex-direction:column}
+  .admin-welcome-primary,.admin-welcome-secondary{width:100%}
+  .admin-overview-booking{grid-template-columns:72px minmax(0,1fr) auto;gap:6px}
+  .admin-overview-booking .admin-overview-arrow{display:none}
+  .admin-overview-booking .admin-status{font-size:7px}
+}
+@media(prefers-reduced-motion:reduce){.admin-overview-card{transition:none}}

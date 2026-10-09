@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { ThemeToggle } from "@/components/theme-toggle";
 import gsap from "gsap";
@@ -17,7 +18,9 @@ const links = [
   { label: "Contact", href: "#contact" },
 ];
 
-export function SiteNavigation() {
+export function SiteNavigation({ homeLinks = false, solid = false }: { homeLinks?: boolean; solid?: boolean }) {
+  const pathname = usePathname();
+  const isBookingPage = pathname === "/booking";
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const menuRef = useRef<HTMLDetailsElement>(null);
@@ -67,14 +70,14 @@ export function SiteNavigation() {
   }, [menuOpen]);
 
   return (
-    <header className={`site-header${scrolled ? " is-scrolled" : " is-on-hero"}`}>
+    <header className={`site-header${scrolled || solid ? " is-scrolled" : " is-on-hero"}`}>
       <div className="nav-inner">
-        <a className="brand-lockup" href="#home" aria-label="Sangam Parlour home"><span>SANGAM</span><small>PARLOUR</small></a>
+        <a className="brand-lockup" href={homeLinks ? "/#home" : "#home"} aria-label="Sangam Parlour home"><span>SANGAM</span><small>PARLOUR</small></a>
         <nav className="desktop-links" aria-label="Main navigation">
-          {links.map((link) => <a href={link.href} key={link.label}>{link.label}</a>)}
+          {links.map((link) => <a href={homeLinks ? `/${link.href}` : link.href} key={link.label}>{link.label}</a>)}
         </nav>
         <ThemeToggle />
-        <a className="nav-booking" href="/booking">Book appointment</a>
+        {!isBookingPage && <a className="nav-booking" href="/booking">Book appointment</a>}
         <details ref={menuRef} className="mobile-menu" onToggle={(event) => {
           const isOpen = event.currentTarget.open;
           setMenuOpen(isOpen);
@@ -85,8 +88,8 @@ export function SiteNavigation() {
           </summary>
           <nav id="mobile-navigation" className="mobile-links" aria-label="Mobile navigation">
             <ThemeToggle compact />
-            {links.map((link) => <a key={link.label} href={link.href} onClick={() => { setMenuOpen(false); if (menuRef.current) menuRef.current.open = false; }}>{link.label}</a>)}
-            <a className="mobile-book-link" href="/booking" onClick={() => { setMenuOpen(false); if (menuRef.current) menuRef.current.open = false; }}>Book appointment</a>
+            {links.map((link) => <a key={link.label} href={homeLinks ? `/${link.href}` : link.href} onClick={() => { setMenuOpen(false); if (menuRef.current) menuRef.current.open = false; }}>{link.label}</a>)}
+            {!isBookingPage && <a className="mobile-book-link" href="/booking" onClick={() => { setMenuOpen(false); if (menuRef.current) menuRef.current.open = false; }}>Book appointment</a>}
           </nav>
         </details>
       </div>
