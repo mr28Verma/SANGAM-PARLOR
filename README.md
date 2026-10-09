@@ -16,6 +16,12 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+## Admin login configuration
+
+Set `ADMIN_USERNAME`, `ADMIN_PASSWORD`, and `AUTH_SECRET` in the server environment. The password is compared on the server and must not use a `NEXT_PUBLIC_` prefix. Keep `AUTH_SECRET` stable so existing Auth.js sessions remain valid. For local development, set these values in your git-ignored `.env.local`; `npm run setup-admin` can update the username and password without changing `AUTH_SECRET`.
+
+For Vercel, open **Project Settings > Environment Variables**, add `ADMIN_USERNAME` and `ADMIN_PASSWORD` for the Production environment (and Preview if needed), and remove the obsolete `ADMIN_PASSWORD_HASH` variable. Keep the existing `AUTH_SECRET`, then redeploy the latest commit.
+
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.

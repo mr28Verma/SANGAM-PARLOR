@@ -1,7 +1,7 @@
 import NextAuth from "next-auth";
 import Credentials from "next-auth/providers/credentials";
 import { consumeLoginAttempt } from "@/lib/admin-rate-limit";
-import { isBcryptHash, verifyAdminPassword } from "@/lib/admin-password";
+import { verifyAdminPassword } from "@/lib/admin-credentials";
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
   trustHost: process.env.NODE_ENV === "development" || process.env.VERCEL === "1" || process.env.AUTH_TRUST_HOST === "true",
@@ -16,24 +16,19 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
       const username = typeof credentials.username === "string" ? credentials.username.trim() : "";
       const password = typeof credentials.password === "string" ? credentials.password : "";
       const configuredUsername = process.env.ADMIN_USERNAME?.trim();
-      const passwordHash = process.env.ADMIN_PASSWORD_HASH;
+      const configuredPassword = process.env.ADMIN_PASSWORD;
       const secret = process.env.AUTH_SECRET;
       const missingConfiguration = [
         !configuredUsername && "ADMIN_USERNAME",
-        !passwordHash && "ADMIN_PASSWORD_HASH",
+        !configuredPassword && "ADMIN_PASSWORD",
         !secret && "AUTH_SECRET",
       ].filter((key): key is string => Boolean(key));
       if (missingConfiguration.length) {
         console.error("[admin-auth] login is not configured; missing environment variable names:", missingConfiguration.join(", "));
         return null;
       }
-      if (!configuredUsername || !passwordHash || !secret) return null;
+      if (!configuredUsername || !configuredPassword || !secret) return null;
       if (!username || !password) return null;
-
-      if (!isBcryptHash(passwordHash)) {
-        console.error("[admin-auth] ADMIN_PASSWORD_HASH is not a valid bcrypt hash.");
-        return null;
-      }
 
       const forwarded = request.headers.get("x-forwarded-for")?.split(",")[0]?.trim();
       const ip = request.headers.get("x-real-ip") || forwarded || "unknown";
@@ -44,7 +39,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
         return null;
       }
 
-      const passwordMatches = await verifyAdminPassword(password, passwordHash);
+      const passwordMatches = verifyAdminPassword(password, configuredPassword);
       if (username !== configuredUsername || !passwordMatches) {
         console.info("[admin-auth] credentials rejected.");
         return null;

@@ -1,7 +1,5 @@
-import { randomBytes } from "node:crypto";
 import { chmodSync, readFileSync, writeFileSync } from "node:fs";
 import { resolve } from "node:path";
-import bcrypt from "bcryptjs";
 
 function readHidden(prompt) {
   return new Promise((resolvePrompt, reject) => {
@@ -50,8 +48,7 @@ try {
   if (first !== second) throw new Error("Passwords do not match.");
 
   const updates = {
-    ADMIN_PASSWORD_HASH: await bcrypt.hash(first, 12),
-    AUTH_SECRET: randomBytes(32).toString("base64url"),
+    ADMIN_PASSWORD: first,
   };
   for (const [key, value] of Object.entries(updates)) {
     const prefix = `${key}=`;
@@ -61,7 +58,7 @@ try {
   }
   writeFileSync(envPath, `${envLines.join("\n").replace(/\n+$/, "")}\n`, { mode: 0o600 });
   chmodSync(envPath, 0o600);
-  process.stdout.write("The configured admin password hash was updated and sessions were invalidated. Restart the dev server.\n");
+  process.stdout.write("The admin password was updated. AUTH_SECRET and existing sessions were left unchanged. Restart the dev server.\n");
 } catch (error) {
   process.stderr.write(`${error instanceof Error ? error.message : "Password reset failed."}\n`);
   process.exitCode = 1;

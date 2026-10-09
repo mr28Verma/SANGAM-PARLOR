@@ -1,7 +1,5 @@
-import { randomBytes } from "node:crypto";
 import { chmodSync, existsSync, readFileSync, writeFileSync } from "node:fs";
 import { resolve } from "node:path";
-import bcrypt from "bcryptjs";
 
 function readHidden(prompt) {
   return new Promise((resolvePrompt, reject) => {
@@ -50,8 +48,7 @@ try {
   const envLines = (existsSync(envPath) ? readFileSync(envPath, "utf8") : "").split(/\r?\n/).filter((line, index, lines) => index < lines.length - 1 || line.length > 0);
   const updates = {
     ADMIN_USERNAME: username,
-    ADMIN_PASSWORD_HASH: await bcrypt.hash(first, 12),
-    AUTH_SECRET: randomBytes(32).toString("base64url"),
+    ADMIN_PASSWORD: first,
   };
   for (const [key, value] of Object.entries(updates)) {
     const match = new RegExp(`^${key}=`);
@@ -61,7 +58,7 @@ try {
   }
   writeFileSync(envPath, `${envLines.join("\n").replace(/\n+$/, "")}\n`, { mode: 0o600 });
   chmodSync(envPath, 0o600);
-  process.stdout.write("Admin credentials and a fresh session secret were saved to the git-ignored .env.local. Restart the dev server.\n");
+  process.stdout.write("Admin credentials were saved to the git-ignored .env.local. AUTH_SECRET was left unchanged. Restart the dev server.\n");
 } catch (error) {
   process.stderr.write(`${error instanceof Error ? error.message : "Admin setup failed."}\n`);
   process.exitCode = 1;

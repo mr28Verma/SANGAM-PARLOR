@@ -4,30 +4,25 @@ import { resolve } from "node:path";
 import { test } from "node:test";
 import ts from "typescript";
 import { readFile } from "node:fs/promises";
-import bcrypt from "bcryptjs";
 
-async function loadAdminPasswordHelpers() {
-  const source = await readFile(resolve(process.cwd(), "lib/admin-password.ts"), "utf8");
+async function loadAdminCredentials() {
+  const path = resolve(process.cwd(), "lib/admin-credentials.ts");
+  const source = await readFile(path, "utf8");
   const compiled = ts.transpile(source, { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2022, esModuleInterop: true });
   const commonJsModule = { exports: {} };
-  const require = createRequire(resolve(process.cwd(), "lib/admin-password.ts"));
+  const require = createRequire(path);
   new Function("require", "module", "exports", compiled)(require, commonJsModule, commonJsModule.exports);
   return commonJsModule.exports;
 }
 
-test("admin password verification accepts and compares bcryptjs hashes", async () => {
-  const password = "temporary-test-password";
-  const hash = await bcrypt.hash(password, 4);
-  const { isBcryptHash, verifyAdminPassword } = await loadAdminPasswordHelpers();
-
-  assert.equal(isBcryptHash(hash), true);
-  assert.equal(await verifyAdminPassword(password, hash), true);
-  assert.equal(await verifyAdminPassword("different-password", hash), false);
+test("admin password verification accepts an exact configured password", async () => {
+  const { verifyAdminPassword } = await loadAdminCredentials();
+  assert.equal(verifyAdminPassword("test-password-123", "test-password-123"), true);
 });
 
-test("admin password verification rejects malformed hashes safely", async () => {
-  const { isBcryptHash, verifyAdminPassword } = await loadAdminPasswordHelpers();
-
-  assert.equal(isBcryptHash("not-a-bcrypt-hash"), false);
-  assert.equal(await verifyAdminPassword("any-password", "not-a-bcrypt-hash"), false);
+test("admin password verification rejects mismatches and missing configuration", async () => {
+  const { verifyAdminPassword } = await loadAdminCredentials();
+  assert.equal(verifyAdminPassword("wrong-password", "test-password-123"), false);
+  assert.equal(verifyAdminPassword("test-password-123", undefined), false);
+  assert.equal(verifyAdminPassword("", ""), false);
 });
