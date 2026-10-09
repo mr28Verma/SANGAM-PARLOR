@@ -1,10 +1,10 @@
 import NextAuth from "next-auth";
 import Credentials from "next-auth/providers/credentials";
-import bcrypt from "bcryptjs";
 import { consumeLoginAttempt } from "@/lib/admin-rate-limit";
+import { isBcryptHash, verifyAdminPassword } from "@/lib/admin-password";
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
-  trustHost: process.env.NODE_ENV === "development" || process.env.AUTH_TRUST_HOST === "true",
+  trustHost: process.env.NODE_ENV === "development" || process.env.VERCEL === "1" || process.env.AUTH_TRUST_HOST === "true",
   pages: { signIn: "/admin/login" },
   session: { strategy: "jwt", maxAge: 8 * 60 * 60, updateAge: 15 * 60 },
   providers: [Credentials({
@@ -30,7 +30,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
       if (!configuredUsername || !passwordHash || !secret) return null;
       if (!username || !password) return null;
 
-      if (!/^\$2[aby]\$\d{2}\$[./A-Za-z0-9]{53}$/.test(passwordHash)) {
+      if (!isBcryptHash(passwordHash)) {
         console.error("[admin-auth] ADMIN_PASSWORD_HASH is not a valid bcrypt hash.");
         return null;
       }
@@ -40,10 +40,11 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
       const attempt = await consumeLoginAttempt(ip);
       if (attempt !== "allowed") {
         if (attempt === "limited") console.warn("[admin-auth] login attempt limit reached for this client.");
+        if (attempt === "unavailable") console.error("[admin-auth] login denied because rate-limit storage is unavailable.");
         return null;
       }
 
-      const passwordMatches = await bcrypt.compare(password, passwordHash);
+      const passwordMatches = await verifyAdminPassword(password, passwordHash);
       if (username !== configuredUsername || !passwordMatches) {
         console.info("[admin-auth] credentials rejected.");
         return null;

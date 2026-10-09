@@ -14,7 +14,12 @@ export async function loginAction(_previous: LoginState, formData: FormData): Pr
   try {
     await signIn("credentials", { username, password, redirectTo: "/admin" });
   } catch (error) {
-    if (error instanceof AuthError) return { error: "Username or password is incorrect." };
+    if (error instanceof AuthError) {
+      if (error.type !== "CredentialsSignin") {
+        console.error("[admin-auth] sign-in flow failed before credential verification:", error.type);
+      }
+      return { error: "Username or password is incorrect." };
+    }
     throw error;
   }
   return { error: "Username or password is incorrect." };
